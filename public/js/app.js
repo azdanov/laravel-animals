@@ -13055,7 +13055,7 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/animals.svg?07ed05cfd28d48030aeb8a0b7c16fa6c";
+module.exports = "/images/animals.svg?8583f40d1569368aa601c55ed6028319";
 
 /***/ }),
 
@@ -13077,7 +13077,7 @@ module.exports = "/images/bird.svg?144a07fd3c7aafc0ef2f28274233aec7";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/cat.svg?312216a84dc01ae9c3e1653521dddcb1";
+module.exports = "/images/cat.svg?afd37979d36744cf255474784f7c847d";
 
 /***/ }),
 
@@ -13088,7 +13088,7 @@ module.exports = "/images/cat.svg?312216a84dc01ae9c3e1653521dddcb1";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/catdog.jpg?840f31fa62d607915110fe27398103d8";
+module.exports = "/images/catdog.jpg?c905d21f237a28f7b8ee01985e3a976f";
 
 /***/ }),
 
@@ -13100,6 +13100,50 @@ module.exports = "/images/catdog.jpg?840f31fa62d607915110fe27398103d8";
 /***/ (function(module, exports) {
 
 module.exports = "/images/dog.svg?71c1da0ea39ba8fd5be524103fed3c01";
+
+/***/ }),
+
+/***/ "./resources/images/maine_coon.jpg":
+/*!*****************************************!*\
+  !*** ./resources/images/maine_coon.jpg ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/maine_coon.jpg?05c601ee8fd8e7d87b668db6fa38bb48";
+
+/***/ }),
+
+/***/ "./resources/images/persian_cat.jpg":
+/*!******************************************!*\
+  !*** ./resources/images/persian_cat.jpg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/persian_cat.jpg?586ff1c5c761a619010ebbb8aba53e16";
+
+/***/ }),
+
+/***/ "./resources/images/russian_blue.jpg":
+/*!*******************************************!*\
+  !*** ./resources/images/russian_blue.jpg ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/russian_blue.jpg?a7dbba98e35f4debd5af7c4197fdf8af";
+
+/***/ }),
+
+/***/ "./resources/images/siamese_cat.jpg":
+/*!******************************************!*\
+  !*** ./resources/images/siamese_cat.jpg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/siamese_cat.jpg?646f24c7e3d71b5d25f04c0a26eb99ec";
 
 /***/ }),
 
@@ -13136,30 +13180,56 @@ var api = ky__WEBPACK_IMPORTED_MODULE_0__["default"].extend({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _images_animals_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/animals.svg */ "./resources/images/animals.svg");
-/* harmony import */ var _images_animals_svg__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_images_animals_svg__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _images_cat_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/cat.svg */ "./resources/images/cat.svg");
-/* harmony import */ var _images_cat_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_cat_svg__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _images_dog_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/dog.svg */ "./resources/images/dog.svg");
-/* harmony import */ var _images_dog_svg__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_dog_svg__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _images_bird_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/bird.svg */ "./resources/images/bird.svg");
-/* harmony import */ var _images_bird_svg__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_images_bird_svg__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _images_catdog_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/catdog.jpg */ "./resources/images/catdog.jpg");
-/* harmony import */ var _images_catdog_jpg__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_images_catdog_jpg__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./api */ "./resources/js/api.js");
-/* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./api */ "./resources/js/api.js");
+/* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
 
 
 
 
-
-
-
-
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('example-component', _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_7__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('example-component', _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_3__["default"]);
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app'
 });
+
+/***/ }),
+
+/***/ "./resources/js/bootstrap.js":
+/*!***********************************!*\
+  !*** ./resources/js/bootstrap.js ***!
+  \***********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _images_animals_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../images/animals.svg */ "./resources/images/animals.svg");
+/* harmony import */ var _images_animals_svg__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_images_animals_svg__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _images_cat_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/cat.svg */ "./resources/images/cat.svg");
+/* harmony import */ var _images_cat_svg__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_images_cat_svg__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _images_dog_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/dog.svg */ "./resources/images/dog.svg");
+/* harmony import */ var _images_dog_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_dog_svg__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _images_bird_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/bird.svg */ "./resources/images/bird.svg");
+/* harmony import */ var _images_bird_svg__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_bird_svg__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _images_catdog_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/catdog.jpg */ "./resources/images/catdog.jpg");
+/* harmony import */ var _images_catdog_jpg__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_images_catdog_jpg__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _images_maine_coon_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/maine_coon.jpg */ "./resources/images/maine_coon.jpg");
+/* harmony import */ var _images_maine_coon_jpg__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_images_maine_coon_jpg__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _images_persian_cat_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/persian_cat.jpg */ "./resources/images/persian_cat.jpg");
+/* harmony import */ var _images_persian_cat_jpg__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_images_persian_cat_jpg__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _images_russian_blue_jpg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../images/russian_blue.jpg */ "./resources/images/russian_blue.jpg");
+/* harmony import */ var _images_russian_blue_jpg__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_images_russian_blue_jpg__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _images_siamese_cat_jpg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../images/siamese_cat.jpg */ "./resources/images/siamese_cat.jpg");
+/* harmony import */ var _images_siamese_cat_jpg__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_images_siamese_cat_jpg__WEBPACK_IMPORTED_MODULE_8__);
+
+
+
+
+
+
+
+
+
 
 /***/ }),
 

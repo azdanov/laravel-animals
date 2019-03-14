@@ -11744,10 +11744,15 @@ label.panel-block:hover {
 }
 
 .has-bg-img {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/images/catdog.jpg?840f31fa62d607915110fe27398103d8) center center;
+  background: linear-gradient(rgba(245, 245, 245, 0.38), rgba(245, 245, 245, 0.38)), url(/images/catdog.jpg?c905d21f237a28f7b8ee01985e3a976f) center center;
   background-size: cover;
   width: 100%;
   height: 100%;
+}
+
+.has-bg-img .title,
+.has-bg-img .subtitle {
+  text-shadow: 1px 0 10px #242424;
 }
 
 .customer::before {
