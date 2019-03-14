@@ -1,0 +1,35 @@
+@import '~bulma';
+@import 'spacing';
+
+#app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+.has-round-corners {
+  border-radius: 4px;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-between;
+}
+
+.has-bg-img {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../images/catdog.jpg') center center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.customer::before {
+  content: '‒';
+  display: inline-block;
+  padding: 0 0.5rem;
+}
