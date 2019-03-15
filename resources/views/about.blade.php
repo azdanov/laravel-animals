@@ -5,10 +5,10 @@
     <div class="hero-body">
       <div class="container has-text-centered">
         <h1 class="title">
-          About
+          Animals
         </h1>
         <p class="subtitle">
-          Information from our little pet haven
+          More information about us
         </p>
       </div>
     </div>
@@ -32,6 +32,16 @@
             Water political for resource bit PM article every. Window current be. Season Mrs
             international stage leader kid something deep.
           </div>
+          <footer class="card-footer">
+            <p class="card-footer-item">
+              <a href="mailto:contact@animals.com">contact@animals.com</a>
+            </p>
+            <p class="card-footer-item">
+              <a href="tel:+491570156">
+                +49 157 0156
+              </a>
+            </p>
+          </footer>
         </section>
         <section class="card mt-5">
           <header class="card-header">
@@ -44,21 +54,59 @@
           </header>
 
           <div class="card-content">
-            <article class="mb-4">
-              <h3 class="is-size-4">Company Owner - Brittany Lopez</h3>
-              <p>Nature customer with area land law ball finish. Collection
-                employee argue goal
-                natural sister. Very stand scientist.</p>
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-64x64">
+                  <img class="has-round-corners mt-2 mt-2" src="{{ asset('images/brittany.png') }}" alt="Brittany Lopez">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Brittany Lopez</strong>
+                    <small class="has-left-dash">Company Owner</small>
+                    <br>
+                    Nature customer with area land law ball finish. Collection
+                    employee argue goal natural sister. Very stand scientist.
+                  </p>
+                </div>
+              </div>
             </article>
-            <article class="mb-4">
-              <h3 class="is-size-4">Secretary - Anna Armstrong</h3>
-              <p>Very resource cup. Pm goal another series star. Medical nice
-                west.</p>
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-64x64">
+                  <img class="has-round-corners mt-2" src="{{ asset('images/anna.jpg') }}" alt="Anna Armstrong">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Anna Armstrong</strong>
+                    <small class="has-left-dash">Secretary</small>
+                    <br>
+                    Sport father campaign if TV capital seem. Keep hard discuss really trade
+                    protect. Position whether even none.
+                  </p>
+                </div>
+              </div>
             </article>
-            <article>
-              <h3 class="is-size-4">Sales - Taylor Johnson</h3>
-              <p>Scientist thought long mission travel fall. Able mind tough name
-                produce article. Size per war show movement.</p>
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-64x64">
+                  <img class="has-round-corners mt-2" src="{{ asset('images/taylor.png') }}" alt="Taylor Johnson">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Taylor Johnson</strong>
+                    <small class="has-left-dash">Sales</small>
+                    <br>
+                    Scientist thought long mission travel fall. Able mind tough name
+                    produce article. Size per war show movement.
+                  </p>
+                </div>
+              </div>
             </article>
           </div>
         </section>

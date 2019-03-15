@@ -11752,10 +11752,10 @@ label.panel-block:hover {
 
 .has-bg-img .title,
 .has-bg-img .subtitle {
-  text-shadow: 1px 0 10px #242424;
+  text-shadow: 1px 0 7px #242424;
 }
 
-.customer::before {
+.has-left-dash::before {
   content: "\2012";
   display: inline-block;
   padding: 0 0.5rem;

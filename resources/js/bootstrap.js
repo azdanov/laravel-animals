@@ -1,9 +1,9 @@
-import '../images/animals.svg'
-import '../images/cat.svg'
-import '../images/dog.svg'
-import '../images/bird.svg'
-import '../images/catdog.jpg'
-import '../images/maine_coon.jpg'
-import '../images/persian_cat.jpg'
-import '../images/russian_blue.jpg'
-import '../images/siamese_cat.jpg'
+function importAll(r) {
+  let images = {}
+  r.keys().map(item => {
+    images[item.replace('./', '')] = r(item)
+  })
+  return images
+}
+
+const images = importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/))

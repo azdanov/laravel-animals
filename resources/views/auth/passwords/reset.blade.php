@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <section class="hero is-primary">
+  <section class="hero has-text-centered">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
@@ -11,7 +11,7 @@
     </div>
   </section>
   <div class="columns is-marginless is-centered">
-    <div class="column is-5">
+    <div class="column is-6">
       <div class="card">
         <header class="card-header">
           <p class="card-header-title">Reset Password</p>
@@ -23,11 +23,11 @@
             </div>
           @endif
           <form class="password-reset-form" method="POST" action="{{ route('password.request') }}">
-            {{ csrf_field() }}
+            @csrf()
             <input type="hidden" name="token" value="{{ $token }}">
             <div class="field is-horizontal">
-              <div class="field-label">
-                <label class="label">E-Mail Address</label>
+              <div class="field-label is-normal">
+                <label class="label">E-Mail</label>
               </div>
               <div class="field-body">
                 <div class="field">
@@ -44,7 +44,7 @@
               </div>
             </div>
             <div class="field is-horizontal">
-              <div class="field-label">
+              <div class="field-label is-normal">
                 <label class="label">Password</label>
               </div>
               <div class="field-body">
@@ -61,7 +61,7 @@
               </div>
             </div>
             <div class="field is-horizontal">
-              <div class="field-label">
+              <div class="field-label is-normal">
                 <label class="label">Confirm Password</label>
               </div>
               <div class="field-body">
@@ -74,11 +74,11 @@
               </div>
             </div>
             <div class="field is-horizontal">
-              <div class="field-label"></div>
+              <div class="field-label is-normal"></div>
               <div class="field-body">
                 <div class="field is-grouped">
                   <div class="control">
-                    <button type="submit" class="button is-primary">Reset Password</button>
+                    <button type="submit" class="button is-info">Reset Password</button>
                   </div>
                 </div>
               </div>

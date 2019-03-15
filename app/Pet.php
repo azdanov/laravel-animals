@@ -21,7 +21,19 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Pet whereId($value)
  * @method static Builder|Pet whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property string $name
+ * @property string $description
+ * @property float $price
+ * @property string $image
+ * @property int $category_id
+ * @method static Builder|Pet whereCategoryId($value)
+ * @method static Builder|Pet whereDescription($value)
+ * @method static Builder|Pet whereImage($value)
+ * @method static Builder|Pet whereName($value)
+ * @method static Builder|Pet wherePrice($value)
  */
 class Pet extends Model
 {
+    /** @var string[] */
+    protected $guarded = [];
 }

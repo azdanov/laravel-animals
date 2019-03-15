@@ -12,7 +12,6 @@ class CreatePetsTable extends Migration
     {
         Schema::create('pets', static function (Blueprint $table): void {
             $table->bigIncrements('id');
-            $table->timestamps();
             $table->string('name', 128);
             $table->string('description', 512);
             $table->decimal('price');
@@ -22,6 +21,7 @@ class CreatePetsTable extends Migration
                 ->references('id')
                 ->on('categories')
                 ->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

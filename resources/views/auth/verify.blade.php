@@ -3,16 +3,16 @@
 @section('content')
   <div class="container">
     <div class="columns is-marginless is-centered">
-      <div class="column is-5">
+      <div class="column is-6">
         <div class="card">
           <header class="card-header">
-            <p class="card-header-title">{{ __('Verify Your Email Address') }}</p>
+            <p class="card-header-title">{{ __('Verify Your Email') }}</p>
           </header>
           <div class="card-content">
             @if (session('resent'))
               <div class="notification is-success">
                 <button class="delete"></button>
-                {{ __('A fresh verification link has been sent to your email address.') }}
+                {{ __('A fresh verification link has been sent to your email.') }}
               </div>
             @endif
             {{ __('Before proceeding, please check your email for a verification link.') }}

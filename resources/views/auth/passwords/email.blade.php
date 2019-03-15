@@ -3,7 +3,7 @@
 @section('content')
 
 
-  <section class="hero is-primary">
+  <section class="hero has-text-centered">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
@@ -14,7 +14,7 @@
   </section>
 
   <div class="columns is-marginless is-centered">
-    <div class="column is-5">
+    <div class="column is-6">
       <div class="card">
         <header class="card-header">
           <p class="card-header-title">Reset Password</p>
@@ -29,11 +29,11 @@
 
           <form class="forgot-password-form" method="POST" action="{{ route('password.email') }}">
 
-            {{ csrf_field() }}
+            @csrf()
 
             <div class="field is-horizontal">
-              <div class="field-label">
-                <label class="label">E-Mail Address</label>
+              <div class="field-label is-normal">
+                <label class="label">E-Mail</label>
               </div>
 
               <div class="field-body">
@@ -53,12 +53,12 @@
             </div>
 
             <div class="field is-horizontal">
-              <div class="field-label"></div>
+              <div class="field-label is-normal"></div>
 
               <div class="field-body">
                 <div class="field is-grouped">
                   <div class="control">
-                    <button type="submit" class="button is-primary">Send Password Reset Link
+                    <button type="submit" class="button is-info">Send Password Reset Link
                     </button>
                   </div>
                 </div>

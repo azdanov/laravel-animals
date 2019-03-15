@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class PetTableSeeder extends Seeder
@@ -17,14 +18,16 @@ class PetTableSeeder extends Seeder
         $dogsId = $catIds['Dogs'];
         $birdsId = $catIds['Birds'];
 
-        DB::table('menu_items')->insert([
+        DB::table('pets')->truncate();
+
+        DB::table('pets')->insert([
             // Cats
             [
                 'name' => 'Russian Blue',
                 'category_id' => $catsId,
                 'image' => 'russian_blue.jpg',
                 'description' => 'The Russian Blue is a cat breed that comes in colors varying from a light shimmering silver to a darker, slate grey.',
-                'price' => 80,
+                'price' => 80 * 100,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
@@ -33,7 +36,7 @@ class PetTableSeeder extends Seeder
                 'category_id' => $catsId,
                 'image' => 'persian_cat.jpg',
                 'description' => 'The Persian cat is a long-haired breed of cat characterized by its round face and short muzzle.',
-                'price' => 100,
+                'price' => 100 * 100,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
@@ -42,7 +45,7 @@ class PetTableSeeder extends Seeder
                 'category_id' => $catsId,
                 'image' => 'siamese_cat.jpg',
                 'description' => 'The Siamese cat is one of the first distinctly recognized breeds of Asian cat.',
-                'price' => 90,
+                'price' => 90 * 100,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
@@ -51,92 +54,74 @@ class PetTableSeeder extends Seeder
                 'category_id' => $catsId,
                 'image' => 'maine_coon.jpg',
                 'description' => 'The Maine Coon is the largest domesticated cat breed. It has a distinctive physical appearance and valuable hunting skills.',
-                'price' => 120,
+                'price' => 120 * 100,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
 
             // Dogs
             [
-                'name' => 'Garden Buffet',
+                'name' => 'Labrador Retriever',
                 'category_id' => $dogsId,
-                'image' => 'parmesan_deviled_eggs.jpg',
-                'description' => 'Choose from our fresh local, organically grown ingredients to make a custom salad.',
-                'price' => 10,
+                'image' => 'labrador_retriever.jpg',
+                'description' => 'The Labrador Retriever, or just Labrador, is a large type of retriever-gun dog. The Labrador is one of the most popular breeds of dog in Canada, the United Kingdom and the United States.',
+                'price' => 200 * 100,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'name' => 'House Salad',
+                'name' => 'Bulldog',
                 'category_id' => $dogsId,
-                'image' => 'house_salad.jpg',
-                'description' => 'Our house salad is made with romaine lettuce and spinach, topped with tomatoes, cucumbers, red onions and carrots. Served with a dressing of your choice.',
-                'price' => 7,
+                'image' => 'bulldog.jpg',
+                'description' => 'The Bulldog, also known as the British Bulldog or English Bulldog, is a medium-sized breed of dog. It is a muscular, hefty dog with a wrinkled face and a distinctive pushed-in nose.',
+                'price' => 230 * 100,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'name' => "Chef's Salad",
+                'name' => 'Beagle',
                 'category_id' => $dogsId,
-                'image' => 'chefs_salad.jpg',
-                'description' => 'The chef’s salad has cucumber, tomatoes, red onions, mushrooms, hard-boiled eggs, cheese, and hot grilled chicken on a bed of romaine lettuce. Served with croutons and your choice of dressing.',
-                'price' => 9,
+                'image' => 'beagle.jpg',
+                'description' => 'The beagle is a breed of small hound that is similar in appearance to the much larger foxhound. The beagle is a scent hound, developed primarily for hunting hare (beagling).',
+                'price' => 170 * 100,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'name' => 'Quinoa Salmon Salad',
+                'name' => 'Chihuahua',
                 'category_id' => $dogsId,
-                'image' => 'quinoa_salmon_salad.jpg',
-                'description' => 'Our quinoa salad is served with quinoa, tomatoes, cucumber, scallions, and smoked salmon. Served with your choice of dressing.',
-                'price' => 12,
+                'image' => 'chihuahua.jpg',
+                'description' => 'The Chihuahua is the smallest breed of dog and is named after the state of Chihuahua in Mexico. Chihuahuas come in a wide variety of colors, and two coat lengths.',
+                'price' => 250 * 100,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
 
             // Birds
             [
-                'name' => 'Classic Burger',
+                'name' => 'Atlantic canary',
                 'category_id' => $birdsId,
-                'image' => 'classic_burger.jpg',
-                'description' => 'Our classic burger is made with 100% pure angus beef, served with lettuce, tomatoes, onions, pickles, and cheese of your choice. Veggie burger available upon request. Served with French fries, fresh fruit, or a side salad.',
-                'price' => 10,
+                'image' => 'atlantic_canary.jpg',
+                'description' => 'The Atlantic canary, known worldwide simply as the wild canary and also called the common canary, is a small bird.',
+                'price' => 100 * 100,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'name' => 'Tomato Bruschetta Tortellini',
+                'name' => 'Black-winged lovebird',
                 'category_id' => $birdsId,
-                'image' => 'tomato_bruschetta_tortellini.jpg',
-                'description' => 'This classic cheese tortellini is cooked in a sundried tomato sauce. Served with bruschetta topped with a tomato and basil marinara.',
-                'price' => 14,
+                'image' => 'lovebird.jpg',
+                'description' => 'The black-winged lovebird also known as Abyssinian lovebird is a mainly green bird of the parrot family.',
+                'price' => 140 * 100,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'name' => 'Handcrafted Pizza',
+                'name' => 'Amazon Parrot',
                 'category_id' => $birdsId,
-                'image' => 'handcrafted_pizza.jpg',
-                'description' => 'Our thin crust pizzas are made fresh daily and topped with your choices of fresh meats, veggies, cheese, and sauce. Price includes two toppings. Add $1 for each additional topping.',
-                'price' => 10,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'name' => 'Barbecued Tofu Skewers',
-                'category_id' => $birdsId,
-                'image' => 'barbecued_tofu_skewers.jpg',
-                'description' => 'Our barbecued skewers include tofu, cherry tomatoes, bell peppers, and zucchini marinated in a ginger sesame sauce and charbroiled. Served with steamed rice.',
-                'price' => 10,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'name' => 'Fiesta Family Platter',
-                'category_id' => $birdsId,
-                'image' => 'fiesta_family_platter.jpg',
-                'description' => 'This platter is perfect for sharing! Enjoy our spicy buffalo wings, traditional nachos, and cheese quesadillas served with freshly made guacamole dip.',
-                'price' => 16,
+                'image' => 'amazon_parrot.jpg',
+                'description' => 'Amazon parrot is a medium-sized mainly green parrot found in woodlands and dry tropical forests.',
+                'price' => 150 * 100,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],

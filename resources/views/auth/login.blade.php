@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <section class="hero is-primary">
+  <section class="hero has-text-centered">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
@@ -11,7 +11,7 @@
     </div>
   </section>
   <div class="columns is-marginless is-centered">
-    <div class="column is-5">
+    <div class="column is-6">
       <div class="card">
         <header class="card-header">
           <p class="card-header-title">Login</p>
@@ -19,10 +19,10 @@
 
         <div class="card-content">
           <form class="login-form" method="POST" action="{{ route('login') }}">
-            {{ csrf_field() }}
+            @csrf()
             <div class="field is-horizontal">
-              <div class="field-label">
-                <label for="email" class="label">E-Mail Address</label>
+              <div class="field-label is-normal">
+                <label for="email" class="label">E-Mail</label>
               </div>
               <div class="field-body">
                 <div class="field">
@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="field is-horizontal">
-              <div class="field-label">
+              <div class="field-label is-normal">
                 <label for="password" class="label">Password</label>
               </div>
               <div class="field-body">
@@ -56,7 +56,7 @@
               </div>
             </div>
             <div class="field is-horizontal">
-              <div class="field-label"></div>
+              <div class="field-label is-normal"></div>
               <div class="field-body">
                 <div class="field">
                   <p class="control">
@@ -69,14 +69,14 @@
               </div>
             </div>
             <div class="field is-horizontal">
-              <div class="field-label"></div>
+              <div class="field-label is-normal"></div>
               <div class="field-body">
-                <div class="field is-grouped">
+                <div class="field is-grouped mt-2">
                   <div class="control">
-                    <button type="submit" class="button is-primary">Login</button>
+                    <button type="submit" class="button is-info">Login</button>
                   </div>
                   <div class="control">
-                    <a href="{{ route('password.request') }}">
+                    <a class="button is-text" href="{{ route('password.request') }}">
                       Forgot Your Password?
                     </a>
                   </div>

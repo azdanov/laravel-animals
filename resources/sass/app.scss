@@ -29,11 +29,11 @@
 
   .title,
   .subtitle {
-    text-shadow: 1px 0 10px $black-ter;
+    text-shadow: 1px 0 7px $black-ter;
   }
 }
 
-.customer::before {
+.has-left-dash::before {
   content: '‒';
   display: inline-block;
   padding: 0 0.5rem;
