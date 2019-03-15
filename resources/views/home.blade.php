@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @php
+  use Illuminate\Support\Str;
   /** @var \App\Category[]|\Illuminate\Support\Collection $categories */
 @endphp
 
@@ -41,7 +42,7 @@
         </p>
 
         <div class="categories mt-5 mb-5">
-          @each('category', $categories, 'category')
+          @each('partials.category', $categories, 'category')
         </div>
         <hr class="mt-7">
         <div class="mt-5 has-text-centered">

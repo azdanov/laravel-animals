@@ -30,6 +30,9 @@
                     <input class="input" id="email" type="email" name="email"
                            value="{{ old('email') }}" required autofocus>
                   </p>
+                  <p class="help is-dark">
+                    Test Email: {{ $user->email }}
+                  </p>
                   @if ($errors->has('email'))
                     <p class="help is-danger">
                       {{ $errors->first('email') }}
@@ -46,6 +49,9 @@
                 <div class="field">
                   <p class="control">
                     <input class="input" id="password" type="password" name="password" required>
+                  </p>
+                  <p class="help is-dark">
+                    Test Password: password
                   </p>
                   @if ($errors->has('password'))
                     <p class="help is-danger">
