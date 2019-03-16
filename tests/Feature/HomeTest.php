@@ -9,6 +9,7 @@ use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use function factory;
+use function route;
 
 class HomeTest extends TestCase
 {
@@ -20,9 +21,9 @@ class HomeTest extends TestCase
         $this->seed('CategoryTableSeeder');
     }
 
-    public function testCanGetHome(): void
+    public function testLoadsHome(): void
     {
-        $response = $this->get('/');
+        $response = $this->get(route('home'));
 
         $response->assertStatus(200);
         $response->assertSeeText('Animals');
@@ -30,7 +31,7 @@ class HomeTest extends TestCase
 
     public function testShowCategoriesInOrder(): void
     {
-        $response = $this->get('/');
+        $response = $this->get(route('home'));
 
         $response->assertSeeTextInOrder(['Cats', 'Dogs', 'Birds']);
     }
@@ -41,7 +42,7 @@ class HomeTest extends TestCase
         factory(Category::class)->create(['name' => 'Test']);
         Category::whereId(1)->delete();
 
-        $response = $this->get('/');
+        $response = $this->get(route('home'));
 
         $response->assertSee('Test');
         $response->assertDontSeeText('Cats');
