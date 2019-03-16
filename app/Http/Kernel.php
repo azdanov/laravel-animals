@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\Check;
 use App\Http\Middleware\CheckForMaintenanceMode;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -25,6 +26,8 @@ use Illuminate\Routing\Middleware\ValidateSignature;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Laravel\Passport\Http\Middleware\CreateFreshApiToken;
+use Spatie\Cors\Cors;
 
 class Kernel extends HttpKernel
 {
@@ -41,6 +44,8 @@ class Kernel extends HttpKernel
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
         TrustProxies::class,
+        Check::class,
+        Cors::class,
     ];
 
     /**
@@ -57,6 +62,7 @@ class Kernel extends HttpKernel
             ShareErrorsFromSession::class,
             VerifyCsrfToken::class,
             SubstituteBindings::class,
+            CreateFreshApiToken::class,
         ],
 
         'api' => ['throttle:60,1', 'bindings'],

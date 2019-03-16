@@ -6,6 +6,7 @@ namespace App;
 
 use Eloquent;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
@@ -31,9 +32,15 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Pet whereImage($value)
  * @method static Builder|Pet whereName($value)
  * @method static Builder|Pet wherePrice($value)
+ * @property Category $category
  */
 class Pet extends Model
 {
     /** @var string[] */
     protected $guarded = [];
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

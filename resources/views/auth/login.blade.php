@@ -31,7 +31,7 @@
                            value="{{ old('email') }}" required autofocus>
                   </p>
                   <p class="help is-dark">
-                    Test Email: {{ $user->email }}
+                    <span class="is-unselectable">Test Email: </span>{{ $user->email }}
                   </p>
                   @if ($errors->has('email'))
                     <p class="help is-danger">
@@ -51,7 +51,7 @@
                     <input class="input" id="password" type="password" name="password" required>
                   </p>
                   <p class="help is-dark">
-                    Test Password: password
+                    <span class="is-unselectable">Test Password: </span>password
                   </p>
                   @if ($errors->has('password'))
                     <p class="help is-danger">

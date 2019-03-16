@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>{{ config('app.name', 'Animals') }}</title>
-  <script async src="{{ asset('js/app.js') }}" defer></script>
+  <title>@yield('title') | {{ config('app.name', 'Animals') }}</title>
 
   <!-- Code snippet to speed up Google Fonts rendering: googlefonts.3perf.com -->
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" as="fetch"
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
+        as="fetch"
         crossorigin="anonymous">
   <script type="text/javascript">
   !function(e, n, t) {
@@ -39,6 +39,9 @@
   <!-- End of code snippet for Google Fonts -->
 
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <script src="{{ asset('js/app.js') }}" defer></script>
+
+  @yield('assets')
 </head>
 <body>
 <div id="app">
@@ -51,8 +54,7 @@
           {{ config('app.name', 'Laravel') }}
         </p>
 
-        <div class="navbar-burger burger"
-             onclick="document.querySelector('#navMenu').classList.toggle('is-active');">
+        <div class="navbar-burger burger" data-target="navMenu">
           <span></span>
           <span></span>
           <span></span>
@@ -76,13 +78,21 @@
 
         <div class="navbar-end is-unselectable">
           @if (Auth::guest())
-            <a class="navbar-item " href="{{ route('login') }}">Login</a>
-            <a class="navbar-item " href="{{ route('register') }}">Register</a>
+            @hasSection('code')
+            @else
+              <a class="navbar-item " href="{{ route('login') }}">Login</a>
+              <a class="navbar-item " href="{{ route('register') }}">Register</a>
+            @endif
           @else
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link" href="#">{{ Auth::user()->name }}</a>
 
               <div class="navbar-dropdown">
+                @if (Auth::user()->is_admin)
+                  <a class="navbar-item" href="{{ route('admin') }}">
+                    Admin
+                  </a>
+                @endif
                 <a class="navbar-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                   Logout
@@ -101,6 +111,18 @@
   </nav>
   <div class="main">
     @yield('content')
+
+    @hasSection('code')
+      <div class="flex-center position-ref centered">
+        <div class="code">
+          @yield('code')
+        </div>
+
+        <div class="error-message" style="padding: 10px;">
+          @yield('message')
+        </div>
+      </div>
+    @endIf
   </div>
   <footer class="footer p-5 mt-5">
     <div class="content has-text-centered">

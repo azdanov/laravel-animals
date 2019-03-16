@@ -5,6 +5,8 @@
   /** @var \App\Pet|\Illuminate\Support\Collection $pet */
 @endphp
 
+@section('title', 'Pets')
+
 @section('content')
   <section class="hero">
     <div class="hero-body">

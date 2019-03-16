@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App;
 
 use Eloquent;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
@@ -28,6 +29,9 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Category whereImage($value)
  * @method static Builder|Category whereName($value)
  * @method static Builder|Category whereUpdatedAt($value)
+ * @property string $description
+ * @property Collection|Pet[] $pets
+ * @method static Builder|Category whereDescription($value)
  */
 class Category extends Model
 {

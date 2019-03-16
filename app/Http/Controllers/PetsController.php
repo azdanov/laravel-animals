@@ -21,28 +21,4 @@ class PetsController extends Controller
 
         return view('pets')->with(compact('categories'));
     }
-
-    public function create(): void
-    {
-    }
-
-    public function store(Request $request): void
-    {
-    }
-
-    public function show(Pet $pet): void
-    {
-    }
-
-    public function edit(Pet $pet): void
-    {
-    }
-
-    public function update(Request $request, Pet $pet): void
-    {
-    }
-
-    public function destroy(Pet $pet): void
-    {
-    }
 }

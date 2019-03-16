@@ -21,7 +21,7 @@
 }
 
 .has-bg-img {
-  background: linear-gradient(rgba($background, 0.38), rgba($background, 0.38)),
+  background: linear-gradient(rgba($grey-lighter, 0.38), rgba($grey-lighter, 0.38)),
     url('../images/catdog.jpg') center center;
   background-size: cover;
   width: 100%;
@@ -37,4 +37,39 @@
   content: '‒';
   display: inline-block;
   padding: 0 0.5rem;
+}
+
+.navbar-item.has-dropdown:focus .navbar-link,
+.navbar-item.has-dropdown.is-active .navbar-link {
+  background-color: hsl(0, 0%, 98%);
+}
+.navbar-item.is-active .navbar-dropdown,
+.navbar-item.is-hoverable:focus-within .navbar-dropdown {
+  display: block;
+}
+
+.centered {
+  height: 80vh;
+}
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.position-ref {
+  position: relative;
+}
+
+.error-message {
+  font-size: 18px;
+  text-align: center;
+}
+
+.code {
+  border-right: 2px solid;
+  font-size: 26px;
+  padding: 0 15px 0 15px;
+  text-align: center;
 }

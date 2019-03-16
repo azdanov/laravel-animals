@@ -5,6 +5,8 @@
   /** @var \App\Category[]|\Illuminate\Support\Collection $categories */
 @endphp
 
+@section('title', 'Home')
+
 @section('content')
   <section class="hero is-large has-bg-img mb-4">
     <div class="hero-body">

@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace App;
 
 use Eloquent;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Laravel\Passport\Client;
+use Laravel\Passport\HasApiTokens;
+use Laravel\Passport\Token;
 
 /**
  * App\User.
@@ -35,10 +39,15 @@ use Illuminate\Support\Carbon;
  * @method static Builder|User whereRememberToken($value)
  * @method static Builder|User whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property int $is_admin
+ * @property Collection|Client[] $clients
+ * @property Collection|Token[] $tokens
+ * @method static Builder|User whereIsAdmin($value)
  */
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasApiTokens;
 
     /** @var string[] */
     protected $fillable = ['name', 'email', 'password'];
