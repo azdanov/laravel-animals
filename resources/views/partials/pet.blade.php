@@ -1,3 +1,6 @@
+@php
+  /** @var \App\Pet $pet */
+@endphp
 <article class="media">
   <figure class="media-left">
     <a href="{{ asset('images/' . $pet->image) }}" class="image is-64x64">
@@ -9,7 +12,7 @@
     <div class="content">
       <p>
         <strong>{{ $pet->name }}</strong>
-        <small class="has-left-dash">{{ number_format($pet->price / 100, 2, ',', '.') }} €</small>
+        <small class="has-left-dash">@money($pet->price, 'EUR')</small>
         <br>
         {{ $pet->description }}
       </p>
