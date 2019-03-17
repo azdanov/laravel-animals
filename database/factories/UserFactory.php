@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 use App\User;
 use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Str;
 
+/** @var Factory $factory */
 $factory->define(User::class, static function (Faker $faker) {
     return [
         'name' => $faker->name,

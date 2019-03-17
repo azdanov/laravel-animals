@@ -25,6 +25,7 @@ class CategoryApiController extends Controller
      */
     public function destroy(Category $category): array
     {
+        $category->pets()->delete();
         $category->delete();
 
         return ['message' => 'Category was deleted.'];
