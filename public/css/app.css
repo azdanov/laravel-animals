@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url(/fonts/icomoon.eot?5bad751987d120ae2f4b1eede380f66b);
-  src:  url(/fonts/icomoon.eot?5bad751987d120ae2f4b1eede380f66b#iefix) format('embedded-opentype'),
-    url(/fonts/icomoon.ttf?ccaa7cb821ee1d32a56049e44b89852d) format('truetype'),
-    url(/fonts/icomoon.woff?de795a88953e1843d48395cc7b6592e8) format('woff'),
-    url(/fonts/icomoon.svg?c1d19dd493ff3d48f0ff045d740bb19f#icomoon) format('svg');
+  src:  url(/fonts/icomoon.eot?f6c658d93d7b364317c9ec97a574b051);
+  src:  url(/fonts/icomoon.eot?f6c658d93d7b364317c9ec97a574b051#iefix) format('embedded-opentype'),
+  url(/fonts/icomoon.ttf?91b3537ab2c4eac37e17f9350889e195) format('truetype'),
+  url(/fonts/icomoon.woff?a1b005a58dd1f7ba8fa34f9a9a7ecd67) format('woff'),
+  url(/fonts/icomoon.svg?14780c1e338ea757914401a6e1bfdd19#icomoon) format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -35,9 +35,6 @@
 }
 .icon-pencil-square-o:before {
   content: "\E902";
-}
-.icon-upload:before {
-  content: "\E903";
 }
 .icon-key:before {
   content: "\E904";
