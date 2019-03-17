@@ -83,6 +83,7 @@
             <drop-zone
               id="image"
               ref="dropzone"
+              :destroy-dropzone="false"
               :class="[errors.image ? 'is-danger' : '']"
               :options="dropzoneOptions"
               :use-custom-slot="true"
@@ -106,7 +107,7 @@
         <div class="field">
           <div class="control">
             <button class="button is-link is-outlined">
-              Add Category
+              {{ slug ? 'Save' : 'Add' }} Category
             </button>
           </div>
         </div>
@@ -119,15 +120,18 @@
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 import api, { headers } from '../api'
 import dropZone from 'vue2-dropzone'
+import ky from 'ky'
 import slugify from '@sindresorhus/slugify'
 
 export default {
-  name: 'CategoryAdd',
+  name: 'CategoryEdit',
   components: {
     'drop-zone': dropZone,
   },
+  props: { slug: { type: String, default: null } },
   data() {
     return {
+      done: false,
       form: {
         name: '',
         description: '',
@@ -141,8 +145,10 @@ export default {
         display_order: null,
       },
       dropzoneOptions: {
-        url: '/api/image',
+        url: '/api/images',
         thumbnailWidth: 200,
+        thumbnailHeight: 120,
+        thumbnailMethod: 'contain',
         addRemoveLinks: true,
         withCredentials: true,
         maxFiles: 1,
@@ -150,25 +156,80 @@ export default {
       },
     }
   },
+  mounted() {
+    if (!this.slug) return
+
+    const category = this.$store.getters.category(this.slug)
+
+    if (category) {
+      this.form = Object.assign({}, this.form, category)
+      this.fetchThumbnail()
+    } else {
+      const unwatch = this.$store.watch(
+        state => state.categories,
+        categories => {
+          this.form = Object.assign(
+            {},
+            this.form,
+            categories.filter(c => slugify(c.name) === this.slug).pop(),
+          )
+          this.fetchThumbnail()
+          unwatch()
+        },
+      )
+    }
+  },
   methods: {
+    fetchThumbnail() {
+      ky.get(`/images/${this.form.image}`)
+        .then(res => res.blob())
+        .then(res => {
+          const file = {
+            name: this.form.image,
+            size: res.size,
+            type: res.type,
+          }
+          console.log(res, file)
+
+          /**
+           * FIXME: Doesn't support SVG
+           * @see https://github.com/rowanwins/vue-dropzone/blob/25ce7942ecdafbd91c5e60bc6d3567403bf57b95/src/components/vue-dropzone.vue#L264
+           */
+          this.$refs.dropzone.manuallyAddFile(file, `/images/${this.form.image}`)
+        })
+    },
     addLastOnly(file) {
       this.$refs.dropzone.removeAllFiles()
       this.$refs.dropzone.addFile(file)
     },
     async remove() {
-      const res = await api.delete(`image/${this.form.image}`).text()
+      if (this.done) return
+
+      const res = await api.delete(`images/${this.form.image}`).text()
       console.log(res)
+
+      this.$store.state.categories.forEach(c => {
+        if (slugify(c.name) === this.slug) {
+          c.image = ''
+        }
+      })
 
       this.form.image = ''
     },
     success(file, response) {
+      this.done = true
       this.errors.image = ''
       this.form.image = response.message
     },
     async submit() {
       let res
       try {
-        res = await api.post('categories', { json: this.form }).json()
+        if (this.slug) {
+          const { id } = this.$store.getters.category(this.slug)
+          res = await api.put(`categories/${id}`, { json: this.form }).json()
+        } else {
+          res = await api.post('categories', { json: this.form }).json()
+        }
       } catch (e) {
         const res = await e.response.json()
         this.errors = Object.assign({}, this.errors, res.errors)

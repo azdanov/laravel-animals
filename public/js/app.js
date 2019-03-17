@@ -86,68 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/images sync \\.(png|jpe?g|svg)$":
-/*!***************************************************************!*\
-  !*** ./resources/images sync nonrecursive \.(png|jpe?g|svg)$ ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./amazon_parrot.jpg": "./resources/images/amazon_parrot.jpg",
-	"./animals.svg": "./resources/images/animals.svg",
-	"./anna.jpg": "./resources/images/anna.jpg",
-	"./atlantic_canary.jpg": "./resources/images/atlantic_canary.jpg",
-	"./beagle.jpg": "./resources/images/beagle.jpg",
-	"./bird.svg": "./resources/images/bird.svg",
-	"./brittany.png": "./resources/images/brittany.png",
-	"./bulldog.jpg": "./resources/images/bulldog.jpg",
-	"./cat.svg": "./resources/images/cat.svg",
-	"./catdog.jpg": "./resources/images/catdog.jpg",
-	"./chihuahua.jpg": "./resources/images/chihuahua.jpg",
-	"./dog.svg": "./resources/images/dog.svg",
-	"./labrador_retriever.jpg": "./resources/images/labrador_retriever.jpg",
-	"./lovebird.jpg": "./resources/images/lovebird.jpg",
-	"./maine_coon.jpg": "./resources/images/maine_coon.jpg",
-	"./persian_cat.jpg": "./resources/images/persian_cat.jpg",
-	"./russian_blue.jpg": "./resources/images/russian_blue.jpg",
-	"./siamese_cat.jpg": "./resources/images/siamese_cat.jpg",
-	"./taylor.png": "./resources/images/taylor.png"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "./resources/images sync \\.(png|jpe?g|svg)$";
-
-/***/ }),
-
-/***/ "./resources/images/amazon_parrot.jpg":
-/*!********************************************!*\
-  !*** ./resources/images/amazon_parrot.jpg ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/amazon_parrot.jpg?b090ecf02aeb3660682505c0ac5f9b4f";
-
-/***/ }),
-
 /***/ "./resources/images/animals.svg":
 /*!**************************************!*\
   !*** ./resources/images/animals.svg ***!
@@ -159,10 +97,10 @@ module.exports = "/images/animals.svg?8583f40d1569368aa601c55ed6028319";
 
 /***/ }),
 
-/***/ "./resources/images/anna.jpg":
-/*!***********************************!*\
-  !*** ./resources/images/anna.jpg ***!
-  \***********************************/
+/***/ "./resources/images/avatars/anna.jpg":
+/*!*******************************************!*\
+  !*** ./resources/images/avatars/anna.jpg ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -170,43 +108,10 @@ module.exports = "/images/anna.jpg?487efa01ccb4f01616741d026a2baddc";
 
 /***/ }),
 
-/***/ "./resources/images/atlantic_canary.jpg":
-/*!**********************************************!*\
-  !*** ./resources/images/atlantic_canary.jpg ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/atlantic_canary.jpg?a1e133a339334699bf7a9f5dac03b505";
-
-/***/ }),
-
-/***/ "./resources/images/beagle.jpg":
-/*!*************************************!*\
-  !*** ./resources/images/beagle.jpg ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/beagle.jpg?25e0a63ada6ccded149bb325a6bd8749";
-
-/***/ }),
-
-/***/ "./resources/images/bird.svg":
-/*!***********************************!*\
-  !*** ./resources/images/bird.svg ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/bird.svg?144a07fd3c7aafc0ef2f28274233aec7";
-
-/***/ }),
-
-/***/ "./resources/images/brittany.png":
-/*!***************************************!*\
-  !*** ./resources/images/brittany.png ***!
-  \***************************************/
+/***/ "./resources/images/avatars/brittany.png":
+/*!***********************************************!*\
+  !*** ./resources/images/avatars/brittany.png ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -214,131 +119,10 @@ module.exports = "/images/brittany.png?6b7def0a8914183e00a7b7628e5cc2d0";
 
 /***/ }),
 
-/***/ "./resources/images/bulldog.jpg":
-/*!**************************************!*\
-  !*** ./resources/images/bulldog.jpg ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/bulldog.jpg?95191734f72433c7e688f5f7f3b9d635";
-
-/***/ }),
-
-/***/ "./resources/images/cat.svg":
-/*!**********************************!*\
-  !*** ./resources/images/cat.svg ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/cat.svg?afd37979d36744cf255474784f7c847d";
-
-/***/ }),
-
-/***/ "./resources/images/catdog.jpg":
-/*!*************************************!*\
-  !*** ./resources/images/catdog.jpg ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/catdog.jpg?c905d21f237a28f7b8ee01985e3a976f";
-
-/***/ }),
-
-/***/ "./resources/images/chihuahua.jpg":
-/*!****************************************!*\
-  !*** ./resources/images/chihuahua.jpg ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/chihuahua.jpg?2e8a405955e849ffef07ce9f44a24319";
-
-/***/ }),
-
-/***/ "./resources/images/dog.svg":
-/*!**********************************!*\
-  !*** ./resources/images/dog.svg ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/dog.svg?71c1da0ea39ba8fd5be524103fed3c01";
-
-/***/ }),
-
-/***/ "./resources/images/labrador_retriever.jpg":
-/*!*************************************************!*\
-  !*** ./resources/images/labrador_retriever.jpg ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/labrador_retriever.jpg?b530c2f55c379732eea833ea1beeba6f";
-
-/***/ }),
-
-/***/ "./resources/images/lovebird.jpg":
-/*!***************************************!*\
-  !*** ./resources/images/lovebird.jpg ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/lovebird.jpg?44f531740f00ab427eea71ca5a370135";
-
-/***/ }),
-
-/***/ "./resources/images/maine_coon.jpg":
-/*!*****************************************!*\
-  !*** ./resources/images/maine_coon.jpg ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/maine_coon.jpg?05c601ee8fd8e7d87b668db6fa38bb48";
-
-/***/ }),
-
-/***/ "./resources/images/persian_cat.jpg":
-/*!******************************************!*\
-  !*** ./resources/images/persian_cat.jpg ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/persian_cat.jpg?586ff1c5c761a619010ebbb8aba53e16";
-
-/***/ }),
-
-/***/ "./resources/images/russian_blue.jpg":
-/*!*******************************************!*\
-  !*** ./resources/images/russian_blue.jpg ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/russian_blue.jpg?a7dbba98e35f4debd5af7c4197fdf8af";
-
-/***/ }),
-
-/***/ "./resources/images/siamese_cat.jpg":
-/*!******************************************!*\
-  !*** ./resources/images/siamese_cat.jpg ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/siamese_cat.jpg?646f24c7e3d71b5d25f04c0a26eb99ec";
-
-/***/ }),
-
-/***/ "./resources/images/taylor.png":
-/*!*************************************!*\
-  !*** ./resources/images/taylor.png ***!
-  \*************************************/
+/***/ "./resources/images/avatars/taylor.png":
+/*!*********************************************!*\
+  !*** ./resources/images/avatars/taylor.png ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -356,7 +140,6 @@ module.exports = "/images/taylor.png?0212174eb4c6b4543aab5e5dcca9c924";
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_bootstrap__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
@@ -365,18 +148,23 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
   \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-function importAll(r) {
-  var images = {};
-  r.keys().map(function (item) {
-    images[item.replace('./', '')] = r(item);
-  });
-  return images;
-}
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _images_animals_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../images/animals.svg */ "./resources/images/animals.svg");
+/* harmony import */ var _images_animals_svg__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_images_animals_svg__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _images_avatars_anna_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/avatars/anna.jpg */ "./resources/images/avatars/anna.jpg");
+/* harmony import */ var _images_avatars_anna_jpg__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_images_avatars_anna_jpg__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _images_avatars_brittany_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/avatars/brittany.png */ "./resources/images/avatars/brittany.png");
+/* harmony import */ var _images_avatars_brittany_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_avatars_brittany_png__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _images_avatars_taylor_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/avatars/taylor.png */ "./resources/images/avatars/taylor.png");
+/* harmony import */ var _images_avatars_taylor_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_avatars_taylor_png__WEBPACK_IMPORTED_MODULE_3__);
 
-var images = importAll(__webpack_require__("./resources/images sync \\.(png|jpe?g|svg)$"));
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
   var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 

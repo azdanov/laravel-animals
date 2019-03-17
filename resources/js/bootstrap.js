@@ -1,12 +1,7 @@
-function importAll(r) {
-  const images = {}
-  r.keys().map(item => {
-    images[item.replace('./', '')] = r(item)
-  })
-  return images
-}
-
-const images = importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/))
+import '../images/animals.svg'
+import '../images/avatars/anna.jpg'
+import '../images/avatars/brittany.png'
+import '../images/avatars/taylor.png'
 
 document.addEventListener('DOMContentLoaded', () => {
   const $navbarBurgers = Array.prototype.slice.call(

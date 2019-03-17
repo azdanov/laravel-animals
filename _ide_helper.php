@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.8.4 on 2019-03-16 19:38:57.
+ * Generated for Laravel 5.8.4 on 2019-03-17 20:43:14.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -8095,8 +8095,6 @@ namespace Illuminate\Support\Facades {
 
     /**
      * 
-     * @method bool|array|null validate(array $rules, ...$params) Validate the given request with the given rules.
-     * @method array           validated()                        Get the validated data from the request.
      *
      * @see \Illuminate\Http\Request
      */ 

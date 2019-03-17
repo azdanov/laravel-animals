@@ -11,10 +11,19 @@ class CategoryTableSeeder extends Seeder
     {
         DB::table('categories')->truncate();
 
+        $images = collect(['cat.svg', 'dog.svg', 'bird.svg']);
+
+        $images->each(static function ($image): void {
+            copy(
+                getcwd() . '/resources/images/categories/' . $image,
+                getcwd() . '/public/storage/images/' . $image
+            );
+        });
+
         DB::table('categories')->insert([
             [
                 'name' => 'Cats',
-                'image' => 'cat.svg',
+                'image' => $images->get(0),
                 'description' => 'A cat',
                 'display_order' => 1,
                 'created_at' => Carbon::now(),
@@ -22,7 +31,7 @@ class CategoryTableSeeder extends Seeder
             ],
             [
                 'name' => 'Dogs',
-                'image' => 'dog.svg',
+                'image' => $images->get(1),
                 'description' => 'A dog',
                 'display_order' => 2,
                 'created_at' => Carbon::now(),
@@ -30,7 +39,7 @@ class CategoryTableSeeder extends Seeder
             ],
             [
                 'name' => 'Birds',
-                'image' => 'bird.svg',
+                'image' => $images->get(2),
                 'description' => 'A bird',
                 'display_order' => 3,
                 'created_at' => Carbon::now(),

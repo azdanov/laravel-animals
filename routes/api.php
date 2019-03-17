@@ -18,10 +18,12 @@ Route::group(
         Route::get('pets', 'PetsController@index');
 
         Route::post('categories', 'CategoryController@store');
-        Route::post('image', 'ImageController@store');
+        Route::post('images', 'ImageController@store');
+
+        Route::put('categories/{category}', 'CategoryController@update');
 
         Route::delete('categories/{category}', 'CategoryController@destroy');
         Route::delete('pets/{pet}', 'PetsController@destroy');
-        Route::delete('image/{file}', 'ImageController@destroy');
+        Route::delete('images/{file}', 'ImageController@destroy');
     }
 );

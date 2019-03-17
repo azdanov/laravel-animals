@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
-use App\Category;
+use App\Pet;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Passport\Passport;
 use Tests\TestCase;
 use function count;
 
-class CategoryApiTest extends TestCase
+class ApiPetsTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -24,7 +24,7 @@ class CategoryApiTest extends TestCase
 
     public function testGuestAccess(): void
     {
-        $response = $this->get('/api/categories');
+        $response = $this->get('/api/pets');
 
         $response->assertStatus(302);
         $response->assertRedirect(route('login'));
@@ -33,7 +33,7 @@ class CategoryApiTest extends TestCase
     public function testGuestDelete(): void
     {
         $id = 1;
-        $response = $this->delete('/api/categories/' . $id);
+        $response = $this->delete('/api/pets/' . $id);
 
         $response->assertStatus(302);
         $response->assertRedirect(route('login'));
@@ -43,7 +43,7 @@ class CategoryApiTest extends TestCase
     {
         Passport::actingAs(factory(User::class)->make());
 
-        $response = $this->get('/api/categories');
+        $response = $this->get('/api/pets');
 
         $response->assertStatus(200);
         $response->assertSeeText('Cats');
@@ -52,14 +52,14 @@ class CategoryApiTest extends TestCase
     public function testUserDelete(): void
     {
         $id = 1;
-        $before = count(Category::all()->toArray());
+        $before = count(Pet::all()->toArray());
         Passport::actingAs(factory(User::class)->make());
 
-        $response = $this->delete('/api/categories/' . $id);
-        $after = count(Category::all()->toArray());
+        $response = $this->delete('/api/pets/' . $id);
+        $after = count(Pet::all()->toArray());
 
         $response->assertStatus(200);
-        $response->assertJson(['message' => 'Category was deleted.']);
+        $response->assertJson(['message' => 'Pet was deleted.']);
         self::assertSame($after, $before - 1);
     }
 }

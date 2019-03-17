@@ -15,7 +15,7 @@
         <router-view></router-view>
       </div>
       <div class="column is-two-thirds-desktop">
-        <router-view name="main"></router-view>
+        <router-view :key="$route.fullPath" name="main"></router-view>
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@
 
 <script>
 import Category from './Category'
-import CategoryAdd from './CategoryAdd'
+import CategoryEdit from './CategoryEdit'
 import CategoryList from './CategoryList'
 import Choose from './Choose'
 import Pet from './Pet'
@@ -64,7 +64,7 @@ export default {
         name: 'category-add',
         components: {
           default: CategoryList,
-          main: CategoryAdd,
+          main: CategoryEdit,
         },
       },
       {
@@ -73,6 +73,18 @@ export default {
         components: {
           default: CategoryList,
           main: Category,
+        },
+        props: {
+          default: false,
+          main: true,
+        },
+      },
+      {
+        path: '/categories/:slug/edit',
+        name: 'category-edit',
+        components: {
+          default: CategoryList,
+          main: CategoryEdit,
         },
         props: {
           default: false,

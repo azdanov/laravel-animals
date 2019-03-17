@@ -19,7 +19,7 @@
       </div>
       <nav class="level is-mobile">
         <div class="level-left">
-          <button class="level-item button is-outlined">
+          <button class="level-item button is-outlined" @click="editCategory()">
             <span class="icon"><span class="icon-edit"></span></span>
             <span>Edit</span>
           </button>
@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import slugify from '@sindresorhus/slugify'
+
 export default {
   name: 'Category',
   props: { slug: { type: String, default: null } },
@@ -59,6 +61,9 @@ export default {
           this.$router.push('/categories')
         })
       }
+    },
+    editCategory() {
+      this.$router.push(`/categories/${slugify(this.category.name)}/edit`)
     },
   },
 }
