@@ -16,9 +16,17 @@
       </div>
       <nav class="level is-mobile">
         <div class="level-left">
-          <button class="level-item button is-text">Edit</button>
-          <button class="level-item button is-text" @click="deletePet(pet.id)">
-            Delete
+          <button class="level-item button is-outlined">
+            <span class="icon">
+              <span class="icon-edit"></span>
+            </span>
+            <span>Edit</span>
+          </button>
+          <button class="level-item button is-outlined" @click="deletePet(pet.id)">
+            <span class="icon">
+              <span class="icon-trash-o"></span>
+            </span>
+            <span>Delete</span>
           </button>
         </div>
       </nav>

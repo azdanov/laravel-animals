@@ -22,18 +22,23 @@
               {{ session('status') }}
             </div>
           @endif
-          <form class="password-reset-form" method="POST" action="{{ route('password.request') }}">
+          <form class="password-reset-form" method="POST"
+                action="{{ route('password.request') }}">
             @csrf()
             <input type="hidden" name="token" value="{{ $token }}">
             <div class="field is-horizontal">
               <div class="field-label is-normal">
-                <label class="label">E-Mail</label>
+                <label for="email" class="label">Email</label>
               </div>
               <div class="field-body">
                 <div class="field">
-                  <p class="control">
+                  <p class="control has-icons-left">
                     <input class="input" id="email" type="email" name="email"
-                           value="{{ old('email') }}" required autofocus>
+                           value="{{ old('email') }}" required autofocus
+                           placeholder="user@example.com">
+                    <span class="icon is-small is-left">
+                      <span class="icon-at"></span>
+                    </span>
                   </p>
                   @if ($errors->has('email'))
                     <p class="help is-danger">
@@ -50,7 +55,8 @@
               <div class="field-body">
                 <div class="field">
                   <p class="control">
-                    <input class="input" id="password" type="password" name="password" required>
+                    <input class="input" id="password" type="password" name="password"
+                           required>
                   </p>
                   @if ($errors->has('password'))
                     <p class="help is-danger">

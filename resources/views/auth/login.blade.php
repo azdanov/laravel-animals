@@ -26,9 +26,13 @@
               </div>
               <div class="field-body">
                 <div class="field">
-                  <p class="control">
+                  <p class="control has-icons-left">
                     <input class="input" id="email" type="email" name="email"
-                           value="{{ old('email') }}" required autofocus>
+                           value="{{ old('email') }}" required autofocus
+                           placeholder="user@example.com">
+                    <span class="icon is-small is-left">
+                      <span class="icon-at"></span>
+                    </span>
                   </p>
                   <p class="help is-dark">
                     <span class="is-unselectable">Test Email: </span>{{ $user->email }}
@@ -47,8 +51,12 @@
               </div>
               <div class="field-body">
                 <div class="field">
-                  <p class="control">
-                    <input class="input" id="password" type="password" name="password" required>
+                  <p class="control has-icons-left">
+                    <input class="input" id="password" type="password" name="password"
+                           required placeholder="*********">
+                    <span class="icon is-small is-left">
+                      <span class="icon-key"></span>
+                    </span>
                   </p>
                   <p class="help is-dark">
                     <span class="is-unselectable">Test Password: </span>password
@@ -68,7 +76,8 @@
                   <p class="control">
                     <label class="checkbox">
                       <input type="checkbox"
-                             name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                             name="remember" {{ old('remember') ? 'checked' : '' }}>
+                      Remember Me
                     </label>
                   </p>
                 </div>

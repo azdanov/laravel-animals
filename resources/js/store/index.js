@@ -31,12 +31,12 @@ export default new Vuex.Store({
       Promise.all([dispatch('fetchCategories'), dispatch('fetchPetGroups')])
     },
     async deletePet({ dispatch }, id) {
-      await api.delete(`pets/${id}`).json()
+      await api.delete(`pets/${id}`)
 
       dispatch('fetchPetGroups')
     },
     async deleteCategory({ dispatch }, id) {
-      await api.delete(`categories/${id}`).json()
+      await api.delete(`categories/${id}`)
 
       dispatch('fetchAll')
     },

@@ -27,7 +27,7 @@
 
     function f(e) {
       if (!n.getElementById(r)) {
-        var t = n.createElement('style')
+        var t = n.createElement('icons.css')
         t.id = r, c(t)
       }
       n.getElementById(r).innerHTML = e
@@ -126,7 +126,7 @@
   </div>
   <footer class="footer p-5 mt-5">
     <div class="content has-text-centered">
-      <p>©{{ now()->year }}</p>
+      <p>© {{ now()->year }}</p>
     </div>
   </footer>
 </div>

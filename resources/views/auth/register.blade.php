@@ -25,9 +25,12 @@
               </div>
               <div class="field-body">
                 <div class="field">
-                  <p class="control">
+                  <p class="control has-icons-left">
                     <input class="input" id="name" type="text" name="name" value="{{ old('name') }}"
-                           required autofocus>
+                           required autofocus placeholder="Jay Jones">
+                    <span class="icon is-small is-left">
+                      <span class="icon-user-circle"></span>
+                    </span>
                   </p>
                   @if ($errors->has('name'))
                     <p class="help is-danger">
@@ -43,9 +46,12 @@
               </div>
               <div class="field-body">
                 <div class="field">
-                  <p class="control">
+                  <p class="control has-icons-left">
                     <input class="input" id="email" type="email" name="email"
-                           value="{{ old('email') }}" required autofocus>
+                           value="{{ old('email') }}" required autofocus placeholder="user@example.com">
+                    <span class="icon is-small is-left">
+                      <span class="icon-at"></span>
+                    </span>
                   </p>
                   @if ($errors->has('email'))
                     <p class="help is-danger">
@@ -61,8 +67,11 @@
               </div>
               <div class="field-body">
                 <div class="field">
-                  <p class="control">
-                    <input class="input" id="password" type="password" name="password" required>
+                  <p class="control has-icons-left">
+                    <input class="input" id="password" type="password" name="password" required placeholder="********">
+                    <span class="icon is-small is-left">
+                      <span class="icon-key"></span>
+                    </span>
                   </p>
                   @if ($errors->has('password'))
                     <p class="help is-danger">
@@ -78,9 +87,12 @@
               </div>
               <div class="field-body">
                 <div class="field">
-                  <p class="control">
+                  <p class="control has-icons-left">
                     <input class="input" id="password-confirm" type="password"
-                           name="password_confirmation" required>
+                           name="password_confirmation" required placeholder="********">
+                    <span class="icon is-small is-left">
+                      <span class="icon-key"></span>
+                    </span>
                   </p>
                 </div>
               </div>

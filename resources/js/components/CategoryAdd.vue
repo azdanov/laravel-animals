@@ -13,7 +13,9 @@
               name="name"
               :class="['input', errors.name ? 'is-danger' : '']"
               type="text"
+              required
               placeholder="Category name"
+              @blur="errors.name = ''"
             />
           </div>
           <p v-if="errors.name" class="help is-danger">{{ errors.name[0] }}</p>
@@ -32,8 +34,10 @@
               id="description"
               v-model="form.description"
               name="description"
-              :class="['textarea', errors.name ? 'is-danger' : '']"
+              required
+              :class="['textarea', errors.description ? 'is-danger' : '']"
               placeholder="Description for this category"
+              @blur="errors.description = ''"
             ></textarea>
           </div>
           <p v-if="errors.description" class="help is-danger">
@@ -54,9 +58,12 @@
               id="order"
               v-model="form.display_order"
               placeholder="Order of this category"
-              :class="['input', errors.name ? 'is-danger' : '']"
+              :class="['input', errors.display_order ? 'is-danger' : '']"
               type="number"
+              required
+              min="1"
               name="order"
+              @blur="errors.display_order = ''"
             />
           </div>
           <p v-if="errors.display_order" class="help is-danger">
@@ -76,11 +83,12 @@
             <drop-zone
               id="image"
               ref="dropzone"
-              :class="[errors.name ? 'is-danger' : '']"
+              :class="[errors.image ? 'is-danger' : '']"
               :options="dropzoneOptions"
               :use-custom-slot="true"
               @vdropzone-max-files-exceeded="addLastOnly"
               @vdropzone-success="success"
+              @vdropzone-removed-file="remove"
             >
               <p class="has-text-left">Select a category image to upload</p>
             </drop-zone>
@@ -97,7 +105,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <button class="button is-info">
+            <button class="button is-link is-outlined">
               Add Category
             </button>
           </div>
@@ -147,7 +155,14 @@ export default {
       this.$refs.dropzone.removeAllFiles()
       this.$refs.dropzone.addFile(file)
     },
+    async remove() {
+      const res = await api.delete(`image/${this.form.image}`).text()
+      console.log(res)
+
+      this.form.image = ''
+    },
     success(file, response) {
+      this.errors.image = ''
       this.form.image = response.message
     },
     async submit() {

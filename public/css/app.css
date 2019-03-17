@@ -1,3 +1,50 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url(/fonts/icomoon.eot?5bad751987d120ae2f4b1eede380f66b);
+  src:  url(/fonts/icomoon.eot?5bad751987d120ae2f4b1eede380f66b#iefix) format('embedded-opentype'),
+    url(/fonts/icomoon.ttf?ccaa7cb821ee1d32a56049e44b89852d) format('truetype'),
+    url(/fonts/icomoon.woff?de795a88953e1843d48395cc7b6592e8) format('woff'),
+    url(/fonts/icomoon.svg?c1d19dd493ff3d48f0ff045d740bb19f#icomoon) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user-circle:before {
+  content: "\E900";
+}
+.icon-trash-o:before {
+  content: "\E901";
+}
+.icon-edit:before {
+  content: "\E902";
+}
+.icon-pencil-square-o:before {
+  content: "\E902";
+}
+.icon-upload:before {
+  content: "\E903";
+}
+.icon-key:before {
+  content: "\E904";
+}
+.icon-at:before {
+  content: "\E905";
+}
 @charset "UTF-8";
 
 /*! bulma.io v0.7.4 | MIT License | github.com/jgthms/bulma */

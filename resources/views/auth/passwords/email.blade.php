@@ -27,20 +27,25 @@
             </div>
           @endif
 
-          <form class="forgot-password-form" method="POST" action="{{ route('password.email') }}">
+          <form class="forgot-password-form" method="POST"
+                action="{{ route('password.email') }}">
 
             @csrf()
 
             <div class="field is-horizontal">
               <div class="field-label is-normal">
-                <label class="label">E-Mail</label>
+                <label for="email" class="label">Email</label>
               </div>
 
               <div class="field-body">
                 <div class="field">
-                  <p class="control">
+                  <p class="control has-icons-left">
                     <input class="input" id="email" type="email" name="email"
-                           value="{{ old('email') }}" required autofocus>
+                           value="{{ old('email') }}" required autofocus
+                           placeholder="user@example.com">
+                    <span class="icon is-small is-left">
+                      <span class="icon-at"></span>
+                    </span>
                   </p>
 
                   @if ($errors->has('email'))
@@ -58,7 +63,8 @@
               <div class="field-body">
                 <div class="field is-grouped">
                   <div class="control">
-                    <button type="submit" class="button is-info">Send Password Reset Link
+                    <button type="submit" class="button is-info">Send Password Reset
+                      Link
                     </button>
                   </div>
                 </div>

@@ -710,6 +710,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Category',
   props: {
@@ -878,6 +884,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -916,43 +930,75 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.$refs.dropzone.removeAllFiles();
       this.$refs.dropzone.addFile(file);
     },
+    remove: function () {
+      var _remove = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _api__WEBPACK_IMPORTED_MODULE_2__["default"].delete("image/".concat(this.form.image)).text();
+
+              case 2:
+                res = _context.sent;
+                console.log(res);
+                this.form.image = '';
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function remove() {
+        return _remove.apply(this, arguments);
+      }
+
+      return remove;
+    }(),
     success: function success(file, response) {
+      this.errors.image = '';
       this.form.image = response.message;
     },
     submit: function () {
       var _submit = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         var res, _res;
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
+                _context2.prev = 0;
+                _context2.next = 3;
                 return _api__WEBPACK_IMPORTED_MODULE_2__["default"].post('categories', {
                   json: this.form
                 }).json();
 
               case 3:
-                res = _context.sent;
-                _context.next = 13;
+                res = _context2.sent;
+                _context2.next = 13;
                 break;
 
               case 6:
-                _context.prev = 6;
-                _context.t0 = _context["catch"](0);
-                _context.next = 10;
-                return _context.t0.response.json();
+                _context2.prev = 6;
+                _context2.t0 = _context2["catch"](0);
+                _context2.next = 10;
+                return _context2.t0.response.json();
 
               case 10:
-                _res = _context.sent;
+                _res = _context2.sent;
                 this.errors = Object.assign({}, this.errors, _res.errors);
-                return _context.abrupt("return");
+                return _context2.abrupt("return");
 
               case 13:
-                _context.next = 15;
+                _context2.next = 15;
                 return this.$store.dispatch('fetchCategories');
 
               case 15:
@@ -960,10 +1006,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 16:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this, [[0, 6]]);
+        }, _callee2, this, [[0, 6]]);
       }));
 
       function submit() {
@@ -1055,6 +1101,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3829,21 +3883,19 @@ var render = function() {
           _vm._v(" "),
           _c("nav", { staticClass: "level is-mobile" }, [
             _c("div", { staticClass: "level-left" }, [
-              _c("button", { staticClass: "level-item button is-text" }, [
-                _vm._v("Edit")
-              ]),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "button",
                 {
-                  staticClass: "level-item button is-text",
+                  staticClass: "level-item button is-outlined",
                   on: {
                     click: function($event) {
                       return _vm.deleteCategory(_vm.category.id)
                     }
                   }
                 },
-                [_vm._v("\n          Delete\n        ")]
+                [_vm._m(1), _vm._v(" "), _c("span", [_vm._v("Delete")])]
               )
             ])
           ])
@@ -3851,7 +3903,28 @@ var render = function() {
       ])
     : _vm._e()
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "level-item button is-outlined" }, [
+      _c("span", { staticClass: "icon" }, [
+        _c("span", { staticClass: "icon-edit" })
+      ]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Edit")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon" }, [
+      _c("span", { staticClass: "icon-trash-o" })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -3904,10 +3977,14 @@ var render = function() {
                   id: "name",
                   name: "name",
                   type: "text",
+                  required: "",
                   placeholder: "Category name"
                 },
                 domProps: { value: _vm.form.name },
                 on: {
+                  blur: function($event) {
+                    _vm.errors.name = ""
+                  },
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -3942,14 +4019,18 @@ var render = function() {
                     expression: "form.description"
                   }
                 ],
-                class: ["textarea", _vm.errors.name ? "is-danger" : ""],
+                class: ["textarea", _vm.errors.description ? "is-danger" : ""],
                 attrs: {
                   id: "description",
                   name: "description",
+                  required: "",
                   placeholder: "Description for this category"
                 },
                 domProps: { value: _vm.form.description },
                 on: {
+                  blur: function($event) {
+                    _vm.errors.description = ""
+                  },
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -3988,15 +4069,20 @@ var render = function() {
                     expression: "form.display_order"
                   }
                 ],
-                class: ["input", _vm.errors.name ? "is-danger" : ""],
+                class: ["input", _vm.errors.display_order ? "is-danger" : ""],
                 attrs: {
                   id: "order",
                   placeholder: "Order of this category",
                   type: "number",
+                  required: "",
+                  min: "1",
                   name: "order"
                 },
                 domProps: { value: _vm.form.display_order },
                 on: {
+                  blur: function($event) {
+                    _vm.errors.display_order = ""
+                  },
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -4033,7 +4119,7 @@ var render = function() {
                   "drop-zone",
                   {
                     ref: "dropzone",
-                    class: [_vm.errors.name ? "is-danger" : ""],
+                    class: [_vm.errors.image ? "is-danger" : ""],
                     attrs: {
                       id: "image",
                       options: _vm.dropzoneOptions,
@@ -4041,7 +4127,8 @@ var render = function() {
                     },
                     on: {
                       "vdropzone-max-files-exceeded": _vm.addLastOnly,
-                      "vdropzone-success": _vm.success
+                      "vdropzone-success": _vm.success,
+                      "vdropzone-removed-file": _vm.remove
                     }
                   },
                   [
@@ -4118,7 +4205,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "field-body" }, [
         _c("div", { staticClass: "field" }, [
           _c("div", { staticClass: "control" }, [
-            _c("button", { staticClass: "button is-info" }, [
+            _c("button", { staticClass: "button is-link is-outlined" }, [
               _vm._v("\n            Add Category\n          ")
             ])
           ])
@@ -4267,21 +4354,19 @@ var render = function() {
           _vm._v(" "),
           _c("nav", { staticClass: "level is-mobile" }, [
             _c("div", { staticClass: "level-left" }, [
-              _c("button", { staticClass: "level-item button is-text" }, [
-                _vm._v("Edit")
-              ]),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "button",
                 {
-                  staticClass: "level-item button is-text",
+                  staticClass: "level-item button is-outlined",
                   on: {
                     click: function($event) {
                       return _vm.deletePet(_vm.pet.id)
                     }
                   }
                 },
-                [_vm._v("\n          Delete\n        ")]
+                [_vm._m(1), _vm._v(" "), _c("span", [_vm._v("Delete")])]
               )
             ])
           ])
@@ -4289,7 +4374,28 @@ var render = function() {
       ])
     : _vm._e()
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "level-item button is-outlined" }, [
+      _c("span", { staticClass: "icon" }, [
+        _c("span", { staticClass: "icon-edit" })
+      ]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Edit")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon" }, [
+      _c("span", { staticClass: "icon-trash-o" })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -20937,7 +21043,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
               case 0:
                 dispatch = _ref4.dispatch;
                 _context4.next = 3;
-                return _api__WEBPACK_IMPORTED_MODULE_3__["default"].delete("pets/".concat(id)).json();
+                return _api__WEBPACK_IMPORTED_MODULE_3__["default"].delete("pets/".concat(id));
 
               case 3:
                 dispatch('fetchPetGroups');
@@ -20967,7 +21073,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
               case 0:
                 dispatch = _ref5.dispatch;
                 _context5.next = 3;
-                return _api__WEBPACK_IMPORTED_MODULE_3__["default"].delete("categories/".concat(id)).json();
+                return _api__WEBPACK_IMPORTED_MODULE_3__["default"].delete("categories/".concat(id));
 
               case 3:
                 dispatch('fetchAll');

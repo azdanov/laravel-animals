@@ -19,12 +19,18 @@
       </div>
       <nav class="level is-mobile">
         <div class="level-left">
-          <button class="level-item button is-text">Edit</button>
+          <button class="level-item button is-outlined">
+            <span class="icon"><span class="icon-edit"></span></span>
+            <span>Edit</span>
+          </button>
           <button
-            class="level-item button is-text"
+            class="level-item button is-outlined"
             @click="deleteCategory(category.id)"
           >
-            Delete
+            <span class="icon">
+              <span class="icon-trash-o"></span>
+            </span>
+            <span>Delete</span>
           </button>
         </div>
       </nav>
@@ -47,6 +53,7 @@ export default {
   methods: {
     deleteCategory(id) {
       const pets = this.pets.filter(pet => pet.category.name === this.category.name)
+
       if (confirm(`Delete ${this.category.name} that contains ${pets.length} items?`)) {
         this.$store.dispatch('deleteCategory', id).then(() => {
           this.$router.push('/categories')
