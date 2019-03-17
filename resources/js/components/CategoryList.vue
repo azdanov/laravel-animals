@@ -1,6 +1,14 @@
 <template>
   <aside class="menu">
     <p class="menu-label">
+      Add
+    </p>
+    <ul class="menu-list">
+      <li>
+        <router-link :to="{ name: 'category-add' }">New Category</router-link>
+      </li>
+    </ul>
+    <p class="menu-label">
       Categories
     </p>
     <ul class="menu-list">

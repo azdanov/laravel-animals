@@ -23,9 +23,11 @@
 
 <script>
 import Category from './Category'
+import CategoryAdd from './CategoryAdd'
 import CategoryList from './CategoryList'
 import Choose from './Choose'
 import Pet from './Pet'
+import PetAdd from './PetAdd'
 import PetList from './PetList'
 import VueRouter from 'vue-router'
 import store from '../store'
@@ -58,6 +60,14 @@ export default {
         },
       },
       {
+        path: '/categories/add',
+        name: 'category-add',
+        components: {
+          default: CategoryList,
+          main: CategoryAdd,
+        },
+      },
+      {
         path: '/categories/:slug',
         name: 'category',
         components: {
@@ -67,6 +77,14 @@ export default {
         props: {
           default: false,
           main: true,
+        },
+      },
+      {
+        path: '/pets/add',
+        name: 'pet-add',
+        components: {
+          default: PetList,
+          main: PetAdd,
         },
       },
       {

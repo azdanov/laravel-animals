@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Pet;
 use Exception;
 
-class PetsApiController extends Controller
+class PetsController extends Controller
 {
     public function index(): string
     {

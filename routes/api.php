@@ -14,10 +14,14 @@ Route::group(
         'middleware' => 'auth:api',
     ],
     static function (): void {
-        Route::get('categories', 'CategoryApiController@index');
-        Route::get('pets', 'PetsApiController@index');
+        Route::get('categories', 'CategoryController@index');
+        Route::get('pets', 'PetsController@index');
 
-        Route::delete('categories/{category}', 'CategoryApiController@destroy');
-        Route::delete('pets/{pet}', 'PetsApiController@destroy');
+        Route::post('categories', 'CategoryController@store');
+
+        Route::post('image', 'ImageController@store');
+
+        Route::delete('categories/{category}', 'CategoryController@destroy');
+        Route::delete('pets/{pet}', 'PetsController@destroy');
     }
 );

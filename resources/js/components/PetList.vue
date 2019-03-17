@@ -1,5 +1,13 @@
 <template>
   <aside class="menu">
+    <p class="menu-label">
+      Add
+    </p>
+    <ul class="menu-list">
+      <li>
+        <router-link :to="{ name: 'pet-add' }">New Pet</router-link>
+      </li>
+    </ul>
     <template v-for="(group, key) in petGroups">
       <p :key="key + 'p'" class="menu-label">
         {{ key }}
