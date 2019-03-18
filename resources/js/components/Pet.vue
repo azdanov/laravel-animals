@@ -7,14 +7,23 @@
     </figure>
     <div class="media-content">
       <div class="content">
-        <p>
+        <div>
           <strong>{{ pet.name }}</strong
           ><small class="has-left-dash">{{ currency(pet.price) }}</small>
           <br />
-          {{ pet.description }}
-        </p>
+          <p>{{ pet.description }}</p>
+          <b-tag>
+            <router-link
+              :to="{
+                name: 'categories-one',
+                params: { slug: $slugify(pet.category.name) },
+              }"
+              >{{ pet.category.name }}</router-link
+            ></b-tag
+          >
+        </div>
       </div>
-      <nav class="level is-mobile">
+      <nav class="level is-mobile mt-4">
         <div class="level-left">
           <button class="level-item button is-outlined" @click="editCategory(pet.id)">
             <span class="icon">
