@@ -49,7 +49,7 @@
         <hr class="mt-7">
         <div class="mt-5 has-text-centered">
           <h3 class="is-size-3 mb-4">What our customers say</h3>
-          <article class="message is-info">
+          <article class="message is-primary">
             <div class="message-body is-radiusless">
               <p class="subtitle">Along wait answer film behind season establish let.
                 Side during far beautiful learn baby she. Little fall reach their position.
@@ -57,7 +57,7 @@
               </p>
             </div>
           </article>
-          <article class="message is-info">
+          <article class="message is-primary">
             <div class="message-body is-radiusless">
               <p class="subtitle">Loss beyond face generation. Direction machine
                 thousand politics lot. Short second
@@ -66,7 +66,7 @@
               </p>
             </div>
           </article>
-          <article class="message is-info">
+          <article class="message is-primary">
             <div class="message-body is-radiusless">
               <p class="subtitle">Executive hard indicate along off. Happen value
                 collection many statement nearly. Spring news weight value whole look leave.

@@ -1423,6 +1423,13 @@ bs-snippet-injector@^2.0.1:
   resolved "https://registry.yarnpkg.com/bs-snippet-injector/-/bs-snippet-injector-2.0.1.tgz#61b5393f11f52559ed120693100343b6edb04dd5"
   integrity sha1-YbU5PxH1JVntEgaTEANDtu2wTdU=
 
+buefy@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/buefy/-/buefy-0.7.3.tgz#3008a20e624416e9d800d8775563afdb766e27d7"
+  integrity sha512-6PHKyDzU9BeExv9w5qcZJkjl9v73RWHeevWDRIZWD5TS4+dbmbzQ6z2EQc0sgbNHYesAgbX2Qd+xu5/KqDMFng==
+  dependencies:
+    bulma "0.7.4"
+
 buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
@@ -1452,7 +1459,7 @@ builtin-status-codes@^3.0.0:
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
 
-bulma@^0.7.4:
+bulma@0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.7.4.tgz#7e74512e9118d9799021339e67e365ee0ac4f3f9"
   integrity sha512-krG2rP6eAX1WE0sf6O0SC/FUVSOBX4m1PBC2+GKLpb2pX0qanaDqcv9U2nu75egFrsHkI0zdWYuk/oGwoszVWg==

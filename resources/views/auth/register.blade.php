@@ -102,7 +102,7 @@
               <div class="field-body">
                 <div class="field is-grouped">
                   <div class="control">
-                    <button type="submit" class="button is-info">Register</button>
+                    <button type="submit" class="button is-primary">Register</button>
                   </div>
                 </div>
               </div>

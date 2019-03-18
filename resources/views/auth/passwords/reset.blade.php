@@ -18,7 +18,7 @@
         </header>
         <div class="card-content">
           @if (session('status'))
-            <div class="notification is-info">
+            <div class="notification is-primary">
               {{ session('status') }}
             </div>
           @endif
@@ -84,7 +84,7 @@
               <div class="field-body">
                 <div class="field is-grouped">
                   <div class="control">
-                    <button type="submit" class="button is-info">Reset Password</button>
+                    <button type="submit" class="button is-primary">Reset Password</button>
                   </div>
                 </div>
               </div>

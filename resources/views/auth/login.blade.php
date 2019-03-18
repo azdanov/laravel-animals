@@ -88,7 +88,7 @@
               <div class="field-body">
                 <div class="field is-grouped mt-2">
                   <div class="control">
-                    <button type="submit" class="button is-info">Login</button>
+                    <button type="submit" class="button is-primary">Login</button>
                   </div>
                   <div class="control">
                     <a class="button is-text" href="{{ route('password.request') }}">

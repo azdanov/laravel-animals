@@ -1,6 +1,7 @@
 # Laravel Animals &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/azdanov/laravel-animals/blob/master/LICENSE)
 
-Building a small store with an admin panel made with Vue.
+Building a small shop with an admin panel made with `Vue`. This is an `Hybrid app` with parts
+made in plain `HTML` and others in `Vue` where SEO is not required.
 
 ![Laravel Animals Screenshot](https://user-images.githubusercontent.com/6123841/54487258-8f6e9d80-489c-11e9-9536-9e616a7d0344.png "Laravel Animals Screenshot")
 

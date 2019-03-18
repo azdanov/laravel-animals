@@ -20,16 +20,14 @@
       <nav class="level is-mobile">
         <div class="level-left">
           <button class="level-item button is-outlined" @click="editCategory()">
-            <span class="icon"><span class="icon-edit"></span></span>
+            <b-icon custom-class="icon-edit"></b-icon>
             <span>Edit</span>
           </button>
           <button
             class="level-item button is-outlined"
             @click="deleteCategory(category.id)"
           >
-            <span class="icon">
-              <span class="icon-trash-o"></span>
-            </span>
+            <b-icon custom-class="icon-trash-o"></b-icon>
             <span>Delete</span>
           </button>
         </div>
@@ -58,7 +56,13 @@ export default {
 
       if (confirm(`Delete ${this.category.name} that contains ${pets.length} items?`)) {
         this.$store.dispatch('deleteCategory', id).then(() => {
-          this.$router.push('/categories')
+          this.$router.push('/categories', () => {
+            this.$toast.open({
+              message: `${this.category.name} has been deleted.`,
+              type: 'is-warning',
+              position: 'is-bottom',
+            })
+          })
         })
       }
     },

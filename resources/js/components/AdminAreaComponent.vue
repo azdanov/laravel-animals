@@ -1,21 +1,36 @@
 <template>
   <div>
-    <div class="tabs">
-      <ul>
-        <li :class="{ 'is-active': isActive('categ') }">
-          <router-link :to="{ name: 'categories' }">Categories</router-link>
-        </li>
-        <li :class="{ 'is-active': isActive('pets') }">
-          <router-link :to="{ name: 'pets' }">Pets</router-link>
-        </li>
-      </ul>
-    </div>
-    <div class="columns is-mobile">
-      <div class="column is-one-quarter-mobile is-one-fifth-tablet">
-        <router-view></router-view>
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">
+            Admin Area
+          </h1>
+        </div>
       </div>
-      <div class="column is-two-thirds-desktop">
-        <router-view :key="$route.fullPath" name="main"></router-view>
+    </section>
+    <div class="container">
+      <div class="columns is-marginless is-centered">
+        <div class="column">
+          <div class="tabs">
+            <ul>
+              <li :class="{ 'is-active': isActive('categ') }">
+                <router-link :to="{ name: 'categories' }">Categories</router-link>
+              </li>
+              <li :class="{ 'is-active': isActive('pets') }">
+                <router-link :to="{ name: 'pets' }">Pets</router-link>
+              </li>
+            </ul>
+          </div>
+          <div class="columns is-mobile">
+            <div class="column is-one-quarter-mobile is-one-fifth-tablet">
+              <router-view></router-view>
+            </div>
+            <div class="column is-two-thirds-desktop">
+              <router-view :key="$route.fullPath" name="main"></router-view>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -23,7 +38,7 @@
 
 <script>
 import Category from './Category'
-import CategoryEdit from './CategoryEdit'
+import CategoryModify from './CategoryModify'
 import CategoryList from './CategoryList'
 import Choose from './Choose'
 import Pet from './Pet'
@@ -31,6 +46,7 @@ import PetAdd from './PetAdd'
 import PetList from './PetList'
 import VueRouter from 'vue-router'
 import store from '../store'
+// import 'buefy/dist/buefy.css'
 
 export default {
   store,
@@ -64,7 +80,7 @@ export default {
         name: 'category-add',
         components: {
           default: CategoryList,
-          main: CategoryEdit,
+          main: CategoryModify,
         },
       },
       {
@@ -84,7 +100,7 @@ export default {
         name: 'category-edit',
         components: {
           default: CategoryList,
-          main: CategoryEdit,
+          main: CategoryModify,
         },
         props: {
           default: false,

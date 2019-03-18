@@ -63,7 +63,7 @@
               <div class="field-body">
                 <div class="field is-grouped">
                   <div class="control">
-                    <button type="submit" class="button is-info">Send Password Reset
+                    <button type="submit" class="button is-primary">Send Password Reset
                       Link
                     </button>
                   </div>
