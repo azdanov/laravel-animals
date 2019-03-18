@@ -42,7 +42,7 @@ class ApiCategoryTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
-    public function testUserAccess(): void
+    public function testAccess(): void
     {
         Passport::actingAs(factory(User::class)->make());
 
@@ -52,7 +52,7 @@ class ApiCategoryTest extends TestCase
         $response->assertSeeText('Cats');
     }
 
-    public function testUserDelete(): void
+    public function testDelete(): void
     {
         $id = 1;
         $before = count(Category::all()->toArray());
@@ -66,7 +66,7 @@ class ApiCategoryTest extends TestCase
         self::assertSame($after, $before - 1);
     }
 
-    public function testUserAdd(): void
+    public function testAdd(): void
     {
         $before = count(Category::all()->toArray());
         Passport::actingAs(factory(User::class)->make());
@@ -91,7 +91,7 @@ class ApiCategoryTest extends TestCase
         self::assertSame($after, $before + 1);
     }
 
-    public function testUserAddAndDelete(): void
+    public function testAddAndDelete(): void
     {
         $before = count(Category::all()->toArray());
         Passport::actingAs(factory(User::class)->make());
@@ -118,5 +118,29 @@ class ApiCategoryTest extends TestCase
         Storage::disk('public')->assertMissing(
             config('app.image_path') . '/' . $file->hashName()
         );
+    }
+
+    public function testModify(): void
+    {
+        $id = 1;
+        $before = Category::whereId($id)->get();
+        Passport::actingAs(factory(User::class)->make());
+        Storage::fake('public');
+        $file = UploadedFile::fake()->image('image.jpg');
+        $this->json('POST', '/api/images', ['file' => $file]);
+        Storage::disk('public')->assertExists(
+            config('app.image_path') . '/' . $file->hashName()
+        );
+        $response = $this->put('/api/categories/' . $id, [
+            'name' => 'Rodents',
+            'image' => $file->hashName(),
+            'description' => 'A mouse',
+            'display_order' => 4,
+        ]);
+        $after = Category::whereId($id)->first();
+
+        $response->assertStatus(200);
+        self::assertNotEquals($before, $after);
+        self::assertEquals('Rodents', $after->name);
     }
 }

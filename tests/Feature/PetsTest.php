@@ -21,7 +21,7 @@ class PetsTest extends TestCase
         $this->seed('PetTableSeeder');
     }
 
-    public function testLoadsPets(): void
+    public function testAccessPets(): void
     {
         $response = $this->get(route('pets'));
 

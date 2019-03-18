@@ -8,9 +8,8 @@ use App\Category;
 use App\Pet;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use function count;
 
-class CategoryTest extends TestCase
+class PetsTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -21,12 +20,11 @@ class CategoryTest extends TestCase
         $this->seed('PetTableSeeder');
     }
 
-    public function testHasManyRelation(): void
+    public function testBelongTo(): void
     {
-        $category= Category::whereName('Cats')->first();
+        $id = Category::inRandomOrder()->pluck('id')->first();
+        $pet = Pet::with('category')->whereCategoryId($id)->first();
 
-        $pets = Pet::whereCategoryId($category->id)->count();
-
-        $this->assertCount($pets, $category->pets);
+        $this->assertTrue($pet->category->pets->contains($pet));
     }
 }

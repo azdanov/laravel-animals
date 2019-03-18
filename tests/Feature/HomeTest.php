@@ -21,7 +21,7 @@ class HomeTest extends TestCase
         $this->seed('CategoryTableSeeder');
     }
 
-    public function testLoadsHome(): void
+    public function testAccessHome(): void
     {
         $response = $this->get(route('home'));
 
@@ -29,7 +29,7 @@ class HomeTest extends TestCase
         $response->assertSeeText('Animals');
     }
 
-    public function testShowCategoriesInOrder(): void
+    public function testCategoriesShownInOrder(): void
     {
         $response = $this->get(route('home'));
 

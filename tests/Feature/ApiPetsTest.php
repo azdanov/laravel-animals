@@ -39,7 +39,7 @@ class ApiPetsTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
-    public function testUserAccess(): void
+    public function testAccess(): void
     {
         Passport::actingAs(factory(User::class)->make());
 
@@ -49,7 +49,7 @@ class ApiPetsTest extends TestCase
         $response->assertSeeText('Cats');
     }
 
-    public function testUserDelete(): void
+    public function testDelete(): void
     {
         $id = 1;
         $before = count(Pet::all()->toArray());

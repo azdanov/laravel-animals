@@ -21,7 +21,7 @@ class ApiImageTest extends TestCase
         $this->seed('CategoryTableSeeder');
     }
 
-    public function testUserImageUpload(): void
+    public function testImageUpload(): void
     {
         Passport::actingAs(factory(User::class)->make());
         Storage::fake('public');
@@ -46,7 +46,7 @@ class ApiImageTest extends TestCase
         );
     }
 
-    public function testUserImageDelete(): void
+    public function testImageDelete(): void
     {
         Passport::actingAs(factory(User::class)->make());
         Storage::fake('public');
