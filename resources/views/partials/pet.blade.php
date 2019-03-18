@@ -12,7 +12,7 @@
     <div class="content">
       <p>
         <strong>{{ $pet->name }}</strong>
-        <small class="has-left-dash">@money($pet->price, 'EUR')</small>
+        <small class="has-left-dash">@money($pet->price, 'EUR', true)</small>
         <br>
         {{ $pet->description }}
       </p>

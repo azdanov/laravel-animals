@@ -43,4 +43,14 @@ class Pet extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function getPriceAttribute(int $value): float
+    {
+        return $value / 100;
+    }
+
+    public function setPriceAttribute(string $value): void
+    {
+        $this->attributes['price'] = (float) $value * 100;
+    }
 }

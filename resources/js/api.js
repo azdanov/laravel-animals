@@ -5,6 +5,8 @@ export const headers = {
   'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
 }
 
+export const http = ky
+
 export default ky.extend({
   prefixUrl: process.env.MIX_APP_URL,
   credentials: 'include',

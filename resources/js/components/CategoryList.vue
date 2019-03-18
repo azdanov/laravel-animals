@@ -5,7 +5,7 @@
     </p>
     <ul class="menu-list">
       <li>
-        <router-link :to="{ name: 'category-add' }">New Category</router-link>
+        <router-link :to="{ name: 'categories-add' }">New Category</router-link>
       </li>
     </ul>
     <p class="menu-label">
@@ -14,7 +14,7 @@
     <ul class="menu-list">
       <li v-for="category of categories" :key="category.id">
         <router-link
-          :to="{ name: 'category', params: { slug: slugify(category.name) } }"
+          :to="{ name: 'categories-one', params: { slug: $slugify(category.name) } }"
           >{{ category.name }}</router-link
         >
       </li>
@@ -23,17 +23,12 @@
 </template>
 
 <script>
-import slugify from '@sindresorhus/slugify'
-
 export default {
   name: 'CategoryList',
   computed: {
     categories() {
       return this.$store.state.categories
     },
-  },
-  methods: {
-    slugify,
   },
 }
 </script>

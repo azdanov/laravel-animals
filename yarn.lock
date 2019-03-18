@@ -1667,6 +1667,11 @@ clean-css@4.2.x, clean-css@^4.1.3:
   dependencies:
     source-map "~0.6.0"
 
+cleave.js@^1.4.2:
+  version "1.4.10"
+  resolved "https://registry.yarnpkg.com/cleave.js/-/cleave.js-1.4.10.tgz#40505827f07c148be6822522504901fca278a445"
+  integrity sha512-7AWnh+6pgQbbRT+e7WnK/yc+U50zhtQZklvEcKDiFDpfcu3kb300BdV7FMYtGOIsAzD5TKy7KH38ZwgyWyFE2Q==
+
 cli-cursor@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cli-cursor/-/cli-cursor-2.1.0.tgz#b35dac376479facc3e94747d41d0d0f5238ffcb5"
@@ -7556,6 +7561,13 @@ vm-browserify@0.0.4:
   integrity sha1-XX6kW7755Kb/ZflUOOCofDV9WnM=
   dependencies:
     indexof "0.0.1"
+
+vue-cleave-component@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/vue-cleave-component/-/vue-cleave-component-2.1.2.tgz#7736adca0520093d711eae6677e8ddb23fd26a03"
+  integrity sha512-h1H+yUJJDU28/HLUwxpFtK9JqLfATI8ve17vTGaT3Mfrkd8QuKl0db4/aGY9FMfkv05VQBquglf+P/cn1WgrAA==
+  dependencies:
+    cleave.js "^1.4.2"
 
 vue-eslint-parser@^5.0.0:
   version "5.0.0"

@@ -14,7 +14,7 @@
         <div class="column">
           <div class="tabs">
             <ul>
-              <li :class="{ 'is-active': isActive('categ') }">
+              <li :class="{ 'is-active': isActive('categories') }">
                 <router-link :to="{ name: 'categories' }">Categories</router-link>
               </li>
               <li :class="{ 'is-active': isActive('pets') }">
@@ -38,15 +38,14 @@
 
 <script>
 import Category from './Category'
-import CategoryModify from './CategoryModify'
 import CategoryList from './CategoryList'
+import CategoryModify from './CategoryModify'
 import Choose from './Choose'
 import Pet from './Pet'
-import PetAdd from './PetAdd'
 import PetList from './PetList'
+import PetModify from './PetModify'
 import VueRouter from 'vue-router'
 import store from '../store'
-// import 'buefy/dist/buefy.css'
 
 export default {
   store,
@@ -68,16 +67,8 @@ export default {
         redirect: { name: 'categories' },
       },
       {
-        path: '/pets',
-        name: 'pets',
-        components: {
-          default: PetList,
-          main: Choose,
-        },
-      },
-      {
         path: '/categories/add',
-        name: 'category-add',
+        name: 'categories-add',
         components: {
           default: CategoryList,
           main: CategoryModify,
@@ -85,7 +76,7 @@ export default {
       },
       {
         path: '/categories/:slug',
-        name: 'category',
+        name: 'categories-one',
         components: {
           default: CategoryList,
           main: Category,
@@ -97,7 +88,7 @@ export default {
       },
       {
         path: '/categories/:slug/edit',
-        name: 'category-edit',
+        name: 'categories-edit',
         components: {
           default: CategoryList,
           main: CategoryModify,
@@ -108,19 +99,39 @@ export default {
         },
       },
       {
-        path: '/pets/add',
-        name: 'pet-add',
+        path: '/pets',
+        name: 'pets',
         components: {
           default: PetList,
-          main: PetAdd,
+          main: Choose,
+        },
+      },
+      {
+        path: '/pets/add',
+        name: 'pets-add',
+        components: {
+          default: PetList,
+          main: PetModify,
         },
       },
       {
         path: '/pets/:slug',
-        name: 'pet',
+        name: 'pets-one',
         components: {
           default: PetList,
           main: Pet,
+        },
+        props: {
+          default: false,
+          main: true,
+        },
+      },
+      {
+        path: '/pets/:slug/edit',
+        name: 'pets-edit',
+        components: {
+          default: PetList,
+          main: PetModify,
         },
         props: {
           default: false,
@@ -143,3 +154,51 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+@import '~vue2-dropzone/dist/vue2Dropzone.min.css';
+
+.dropzone {
+  border-radius: 4px;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(0, 0%, 86%);
+  color: hsl(0, 0%, 76%);
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  max-width: 100%;
+  width: 100%;
+  padding: 0.625em;
+  min-height: 100px;
+
+  &:hover {
+    cursor: pointer;
+    border-color: hsl(0, 0%, 71%);
+  }
+
+  &.is-danger {
+    border-color: hsl(348, 100%, 61%);
+  }
+
+  .dz-message {
+    margin: 0;
+  }
+
+  .dz-preview {
+    margin: 0;
+    .dz-image {
+      border-radius: 4px;
+    }
+  }
+}
+
+.vue-dropzone {
+  transition: none;
+
+  &:hover {
+    background-color: hsl(0, 0%, 100%);
+  }
+
+  & > .dz-preview .dz-details {
+    background-color: hsl(263, 64%, 70%);
+  }
+}
+</style>

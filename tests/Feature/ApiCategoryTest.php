@@ -82,8 +82,6 @@ class ApiCategoryTest extends TestCase
             'image' => $file->hashName(),
             'description' => 'A mouse',
             'display_order' => 4,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
         ]);
         $after = count(Category::all()->toArray());
 
@@ -106,8 +104,6 @@ class ApiCategoryTest extends TestCase
             'image' => $file->hashName(),
             'description' => 'A mouse',
             'display_order' => 4,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
         ]);
         $after = count(Category::all()->toArray());
         $response->assertStatus(200);

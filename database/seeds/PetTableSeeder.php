@@ -36,8 +36,8 @@ class PetTableSeeder extends Seeder
 
         $images->each(static function ($image): void {
             copy(
-                getcwd() . '/resources/images/pets/' . $image,
-                getcwd() . '/public/storage/images/' . $image
+                base_path('resources/images/pets/') . $image,
+                base_path('public/storage/images/') . $image
             );
         });
 

@@ -11,7 +11,7 @@
         id="name"
         v-model="form.name"
         name="name"
-        placeholder="Category name"
+        placeholder="Pet name"
         required
         expanded
         @blur="errors.name = ''"
@@ -29,7 +29,7 @@
         id="description"
         v-model="form.description"
         name="description"
-        placeholder="Description for this category"
+        placeholder="Description for this pet"
         required
         expanded
         type="textarea"
@@ -37,24 +37,45 @@
       ></b-input>
     </b-field>
 
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label for="price" class="label">
+          Price
+        </label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control is-expanded is-clearfix">
+            <cleave
+              id="price"
+              v-model="form.price"
+              name="price"
+              placeholder="Pet price"
+              :class="['input', errors.price ? 'is-danger' : '']"
+              required="required"
+              :options="cleaveOptions"
+            ></cleave>
+          </div>
+          <p v-if="errors.price" class="help is-danger">{{ errors.price[0] }}</p>
+        </div>
+      </div>
+    </div>
+
     <b-field
       horizontal
-      label="Display Order"
-      label-for="display_order"
-      :type="errors.display_order ? 'is-danger' : ''"
-      :message="errors.display_order[0]"
+      label="Category"
+      label-for="category_id"
+      :type="errors.category_id ? 'is-danger' : ''"
+      :message="errors.category_id[0]"
     >
-      <b-input
-        id="display_order"
-        v-model="form.display_order"
-        name="display_order"
-        placeholder="Order of this category"
-        required
+      <b-select
+        v-model="form.category_id"
+        placeholder="Select a pet category"
         expanded
-        type="number"
-        min="1"
-        @blur="errors.display_order = ''"
-      ></b-input>
+        required
+      >
+        <option v-for="c of categories" :key="c.id" :value="c.id">{{ c.name }}</option>
+      </b-select>
     </b-field>
 
     <b-field
@@ -73,14 +94,14 @@
         @vdropzone-success="success"
         @vdropzone-removed-file="remove"
       >
-        <p class="has-text-left">Select a category image to upload</p>
+        <p class="has-text-left">Select a pet image to upload</p>
       </drop-zone></b-field
     >
 
     <b-field horizontal>
       <p class="control">
         <button class="button is-link is-outlined">
-          {{ slug ? 'Save' : 'Add' }} Category
+          {{ slug ? 'Save' : 'Add' }} Pet
         </button>
       </p>
     </b-field>
@@ -88,10 +109,15 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import api, { headers, http } from '../api'
+import cleave from 'vue-cleave-component'
 
 export default {
-  name: 'CategoryModify',
+  name: 'PetModify',
+  components: {
+    cleave,
+  },
   props: { slug: { type: String, default: null } },
   data() {
     return {
@@ -100,13 +126,26 @@ export default {
         name: '',
         description: '',
         image: '',
-        display_order: '',
+        price: null,
+        category_id: null,
       },
       errors: {
         name: '',
         description: '',
         image: '',
-        display_order: '',
+        price: '',
+        category_id: '',
+      },
+      cleaveOptions: {
+        prefix: '€ ',
+        numeral: true,
+        numeralPositiveOnly: true,
+        noImmediatePrefix: true,
+        rawValueTrimPrefix: true,
+        numeralIntegerScale: 9,
+        numeralDecimalScale: 2,
+        delimiter: ' ',
+        numeralDecimalMark: ',',
       },
       dropzoneOptions: {
         url: '/api/images',
@@ -120,27 +159,24 @@ export default {
       },
     }
   },
+  computed: mapState(['categories']),
   mounted() {
-    this.initDropZone()
+    this.initDropzone()
   },
   methods: {
-    initDropZone() {
+    initDropzone() {
       if (!this.slug) return
 
-      const category = this.$store.getters.category(this.slug)
+      const pet = this.$store.getters.pet(this.slug)
 
-      if (category) {
-        this.form = Object.assign({}, this.form, category)
+      if (pet) {
+        this.form = Object.assign({}, this.form, pet)
         this.fetchThumbnail()
       } else {
         const unwatch = this.$store.watch(
-          state => state.categories,
+          state => state.petGroups,
           () => {
-            this.form = Object.assign(
-              {},
-              this.form,
-              this.$store.getters.category(this.slug),
-            )
+            this.form = Object.assign({}, this.form, this.$store.getters.pet(this.slug))
             this.fetchThumbnail()
             unwatch()
           },
@@ -192,11 +228,11 @@ export default {
       let message
       try {
         if (this.slug) {
-          const { id } = this.$store.getters.category(this.slug)
-          res = await api.put(`categories/${id}`, { json: this.form }).json()
+          const { id } = this.$store.getters.pet(this.slug)
+          res = await api.put(`pets/${id}`, { json: this.form }).json()
           message = `${this.form.name} has been updated.`
         } else {
-          res = await api.post('categories', { json: this.form }).json()
+          res = await api.post('pets', { json: this.form }).json()
           message = `${this.form.name} has been added.`
         }
       } catch (e) {
@@ -211,8 +247,8 @@ export default {
       }
 
       this.done = true
-      await this.$store.dispatch('fetchCategories')
-      this.$router.push(`/categories/${this.$slugify(this.form.name)}`, () => {
+      await this.$store.dispatch('fetchPetGroups')
+      this.$router.push(`/pets/${this.$slugify(this.form.name)}`, () => {
         this.$toast.open({
           message,
           type: 'is-success',

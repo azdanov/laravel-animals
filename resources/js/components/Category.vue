@@ -37,8 +37,6 @@
 </template>
 
 <script>
-import slugify from '@sindresorhus/slugify'
-
 export default {
   name: 'Category',
   props: { slug: { type: String, default: null } },
@@ -67,7 +65,7 @@ export default {
       }
     },
     editCategory() {
-      this.$router.push(`/categories/${slugify(this.category.name)}/edit`)
+      this.$router.push(`/categories/${this.$slugify(this.category.name)}/edit`)
     },
   },
 }

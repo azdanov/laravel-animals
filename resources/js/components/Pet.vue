@@ -16,7 +16,7 @@
       </div>
       <nav class="level is-mobile">
         <div class="level-left">
-          <button class="level-item button is-outlined">
+          <button class="level-item button is-outlined" @click="editCategory(pet.id)">
             <span class="icon">
               <span class="icon-edit"></span>
             </span>
@@ -44,18 +44,19 @@ export default {
     },
   },
   methods: {
-    currency(value) {
-      return new Intl.NumberFormat('et', {
-        style: 'currency',
-        currency: 'EUR',
-      }).format(value / 100)
-    },
+    currency: new Intl.NumberFormat('et', {
+      style: 'currency',
+      currency: 'EUR',
+    }).format,
     deletePet(id) {
       if (confirm(`Delete ${this.pet.name} from ${this.pet.category.name}?`)) {
         this.$store.dispatch('deletePet', id).then(() => {
           this.$router.push('/pets')
         })
       }
+    },
+    editCategory() {
+      this.$router.push(`/pets/${this.$slugify(this.pet.name)}/edit`)
     },
   },
 }
