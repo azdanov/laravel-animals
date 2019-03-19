@@ -27,7 +27,8 @@
         @foreach ($categories as $category)
           <nav class="card">
             <header class="card-header">
-              <p id="{{ Str::slug($category->name) }}" class="card-header-title is-size-4">
+              <p id="{{ Str::slug($category->name) }}"
+                 class="card-header-title is-size-4">
                 {{ $category->name }}
               </p>
             </header>

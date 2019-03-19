@@ -29,9 +29,11 @@
           </header>
 
           <div class="card-content">
-            Phone join future majority. Campaign fact price research add. Thing friend leg enter
+            Phone join future majority. Campaign fact price research add. Thing friend
+            leg enter
             since weight.
-            Water political for resource bit PM article every. Window current be. Season Mrs
+            Water political for resource bit PM article every. Window current be. Season
+            Mrs
             international stage leader kid something deep.
           </div>
           <footer class="card-footer">
@@ -59,7 +61,8 @@
             <article class="media">
               <figure class="media-left">
                 <p class="image is-64x64">
-                  <img class="has-round-corners mt-2 mt-2" src="{{ asset('images/brittany.png') }}" alt="Brittany Lopez">
+                  <img class="has-round-corners mt-2 mt-2"
+                       src="{{ asset('images/brittany.png') }}" alt="Brittany Lopez">
                 </p>
               </figure>
               <div class="media-content">
@@ -77,7 +80,8 @@
             <article class="media">
               <figure class="media-left">
                 <p class="image is-64x64">
-                  <img class="has-round-corners mt-2" src="{{ asset('images/anna.jpg') }}" alt="Anna Armstrong">
+                  <img class="has-round-corners mt-2"
+                       src="{{ asset('images/anna.jpg') }}" alt="Anna Armstrong">
                 </p>
               </figure>
               <div class="media-content">
@@ -86,7 +90,8 @@
                     <strong>Anna Armstrong</strong>
                     <small class="has-left-dash">Secretary</small>
                     <br>
-                    Sport father campaign if TV capital seem. Keep hard discuss really trade
+                    Sport father campaign if TV capital seem. Keep hard discuss really
+                    trade
                     protect. Position whether even none.
                   </p>
                 </div>
@@ -95,7 +100,8 @@
             <article class="media">
               <figure class="media-left">
                 <p class="image is-64x64">
-                  <img class="has-round-corners mt-2" src="{{ asset('images/taylor.png') }}" alt="Taylor Johnson">
+                  <img class="has-round-corners mt-2"
+                       src="{{ asset('images/taylor.png') }}" alt="Taylor Johnson">
                 </p>
               </figure>
               <div class="media-content">

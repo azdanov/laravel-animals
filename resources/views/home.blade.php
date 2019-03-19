@@ -37,9 +37,11 @@
     <div class="columns is-marginless is-centered">
       <div class="column is-8">
         <h3 class="title">Meet our friends</h3>
-        <p class="subtitle">You will find your favorite little or big friend on our list.
+        <p class="subtitle">You will find your favorite little or big friend on our
+          list.
           Response need model
-          point meeting pressure. Involve produce method star air read. Check good debate
+          point meeting pressure. Involve produce method star air read. Check good
+          debate
           garden.
         </p>
 
@@ -52,7 +54,8 @@
           <article class="message is-primary">
             <div class="message-body is-radiusless">
               <p class="subtitle">Along wait answer film behind season establish let.
-                Side during far beautiful learn baby she. Little fall reach their position.
+                Side during far beautiful learn baby she. Little fall reach their
+                position.
                 <small class="has-left-dash">Mark Cook</small>
               </p>
             </div>
@@ -69,7 +72,8 @@
           <article class="message is-primary">
             <div class="message-body is-radiusless">
               <p class="subtitle">Executive hard indicate along off. Happen value
-                collection many statement nearly. Spring news weight value whole look leave.
+                collection many statement nearly. Spring news weight value whole look
+                leave.
                 <small class="has-left-dash">Todd Davis</small>
               </p>
             </div>

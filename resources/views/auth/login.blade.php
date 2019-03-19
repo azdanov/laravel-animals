@@ -1,12 +1,9 @@
 @extends('layouts.app')
-
 @section('content')
   <section class="hero has-text-centered">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">
-          Login
-        </h1>
+        <h1 class="title">Login</h1>
       </div>
     </div>
   </section>
@@ -27,20 +24,26 @@
               <div class="field-body">
                 <div class="field">
                   <p class="control has-icons-left">
-                    <input class="input" id="email" type="email" name="email"
-                           value="{{ old('email') }}" required autofocus
-                           placeholder="user@example.com">
+                    <input
+                      class="input"
+                      id="email"
+                      type="email"
+                      name="email"
+                      value="{{ old('email') }}"
+                      required
+                      autofocus
+                      placeholder="user@example.com"
+                    >
                     <span class="icon is-small is-left">
-                      <span class="icon-at"></span>
-                    </span>
+                    <span class="icon-at"></span>
+                  </span>
                   </p>
                   <p class="help is-dark">
-                    <span class="is-unselectable">Test Email: </span>{{ $user->email }}
+                    <span class="is-unselectable">Test Email:</span>
+                    {{ $user->email }}
                   </p>
                   @if ($errors->has('email'))
-                    <p class="help is-danger">
-                      {{ $errors->first('email') }}
-                    </p>
+                    <p class="help is-danger">{{ $errors->first('email') }}</p>
                   @endif
                 </div>
               </div>
@@ -52,19 +55,23 @@
               <div class="field-body">
                 <div class="field">
                   <p class="control has-icons-left">
-                    <input class="input" id="password" type="password" name="password"
-                           required placeholder="*********">
+                    <input
+                      class="input"
+                      id="password"
+                      type="password"
+                      name="password"
+                      required
+                      placeholder="*********"
+                    >
                     <span class="icon is-small is-left">
-                      <span class="icon-key"></span>
-                    </span>
+                    <span class="icon-key"></span>
+                  </span>
                   </p>
                   <p class="help is-dark">
-                    <span class="is-unselectable">Test Password: </span>password
+                    <span class="is-unselectable">Test Password:</span>password
                   </p>
                   @if ($errors->has('password'))
-                    <p class="help is-danger">
-                      {{ $errors->first('password') }}
-                    </p>
+                    <p class="help is-danger">{{ $errors->first('password') }}</p>
                   @endif
                 </div>
               </div>
@@ -91,9 +98,10 @@
                     <button type="submit" class="button is-primary">Login</button>
                   </div>
                   <div class="control">
-                    <a class="button is-text" href="{{ route('password.request') }}">
-                      Forgot Your Password?
-                    </a>
+                    <a
+                      class="button is-text"
+                      href="{{ route('password.request') }}"
+                    >Forgot Your Password?</a>
                   </div>
                 </div>
               </div>

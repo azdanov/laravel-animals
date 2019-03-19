@@ -1,12 +1,9 @@
 @extends('layouts.app')
-
 @section('content')
   <section class="hero has-text-centered">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">
-          Reset Password
-        </h1>
+        <h1 class="title">Reset Password</h1>
       </div>
     </div>
   </section>
@@ -18,12 +15,13 @@
         </header>
         <div class="card-content">
           @if (session('status'))
-            <div class="notification is-primary">
-              {{ session('status') }}
-            </div>
+            <div class="notification is-primary">{{ session('status') }}</div>
           @endif
-          <form class="password-reset-form" method="POST"
-                action="{{ route('password.request') }}">
+          <form
+            class="password-reset-form"
+            method="POST"
+            action="{{ route('password.request') }}"
+          >
             @csrf()
             <input type="hidden" name="token" value="{{ $token }}">
             <div class="field is-horizontal">
@@ -33,17 +31,22 @@
               <div class="field-body">
                 <div class="field">
                   <p class="control has-icons-left">
-                    <input class="input" id="email" type="email" name="email"
-                           value="{{ old('email') }}" required autofocus
-                           placeholder="user@example.com">
+                    <input
+                      class="input"
+                      id="email"
+                      type="email"
+                      name="email"
+                      value="{{ old('email') }}"
+                      required
+                      autofocus
+                      placeholder="user@example.com"
+                    >
                     <span class="icon is-small is-left">
-                      <span class="icon-at"></span>
-                    </span>
+                    <span class="icon-at"></span>
+                  </span>
                   </p>
                   @if ($errors->has('email'))
-                    <p class="help is-danger">
-                      {{ $errors->first('email') }}
-                    </p>
+                    <p class="help is-danger">{{ $errors->first('email') }}</p>
                   @endif
                 </div>
               </div>
@@ -55,13 +58,16 @@
               <div class="field-body">
                 <div class="field">
                   <p class="control">
-                    <input class="input" id="password" type="password" name="password"
-                           required>
+                    <input
+                      class="input"
+                      id="password"
+                      type="password"
+                      name="password"
+                      required
+                    >
                   </p>
                   @if ($errors->has('password'))
-                    <p class="help is-danger">
-                      {{ $errors->first('password') }}
-                    </p>
+                    <p class="help is-danger">{{ $errors->first('password') }}</p>
                   @endif
                 </div>
               </div>
@@ -73,8 +79,13 @@
               <div class="field-body">
                 <div class="field">
                   <p class="control">
-                    <input class="input" id="password-confirm" type="password"
-                           name="password_confirmation" required>
+                    <input
+                      class="input"
+                      id="password-confirm"
+                      type="password"
+                      name="password_confirmation"
+                      required
+                    >
                   </p>
                 </div>
               </div>
@@ -84,7 +95,8 @@
               <div class="field-body">
                 <div class="field is-grouped">
                   <div class="control">
-                    <button type="submit" class="button is-primary">Reset Password</button>
+                    <button type="submit" class="button is-primary">Reset Password
+                    </button>
                   </div>
                 </div>
               </div>
