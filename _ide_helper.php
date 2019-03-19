@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.8.4 on 2019-03-19 05:11:00.
+ * Generated for Laravel 5.8.4 on 2019-03-19 06:10:17.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -14426,6 +14426,380 @@ namespace Illuminate\Support {
  
 }
 
+namespace Darryldecode\Cart\Facades { 
+
+    /**
+     * 
+     *
+     */ 
+    class CartFacade {
+        
+        /**
+         * sets the session key
+         *
+         * @param string $sessionKey the session key or identifier
+         * @return $this|bool 
+         * @throws \Exception
+         * @static 
+         */ 
+        public static function session($sessionKey)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->session($sessionKey);
+        }
+        
+        /**
+         * get instance name of the cart
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getInstanceName()
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->getInstanceName();
+        }
+        
+        /**
+         * get an item on a cart by item ID
+         *
+         * @param $itemId
+         * @return mixed 
+         * @static 
+         */ 
+        public static function get($itemId)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->get($itemId);
+        }
+        
+        /**
+         * check if an item exists by item ID
+         *
+         * @param $itemId
+         * @return bool 
+         * @static 
+         */ 
+        public static function has($itemId)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->has($itemId);
+        }
+        
+        /**
+         * add item to the cart, it can be an array or multi dimensional array
+         *
+         * @param string|array $id
+         * @param string $name
+         * @param float $price
+         * @param int $quantity
+         * @param array $attributes
+         * @param \Darryldecode\Cart\CartCondition|array $conditions
+         * @return \Darryldecode\Cart\Cart 
+         * @throws InvalidItemException
+         * @static 
+         */ 
+        public static function add($id, $name = null, $price = null, $quantity = null, $attributes = array(), $conditions = array())
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->add($id, $name, $price, $quantity, $attributes, $conditions);
+        }
+        
+        /**
+         * update a cart
+         *
+         * @param $id
+         * @param $data the $data will be an associative array, you don't need to pass all the data, only the key value
+         * of the item you want to update on it
+         * @return bool 
+         * @static 
+         */ 
+        public static function update($id, $data)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->update($id, $data);
+        }
+        
+        /**
+         * add condition on an existing item on the cart
+         *
+         * @param int|string $productId
+         * @param \Darryldecode\Cart\CartCondition $itemCondition
+         * @return \Darryldecode\Cart\Cart 
+         * @static 
+         */ 
+        public static function addItemCondition($productId, $itemCondition)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->addItemCondition($productId, $itemCondition);
+        }
+        
+        /**
+         * removes an item on cart by item ID
+         *
+         * @param $id
+         * @return bool 
+         * @static 
+         */ 
+        public static function remove($id)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->remove($id);
+        }
+        
+        /**
+         * clear cart
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function clear()
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->clear();
+        }
+        
+        /**
+         * add a condition on the cart
+         *
+         * @param \Darryldecode\Cart\CartCondition|array $condition
+         * @return \Darryldecode\Cart\Cart 
+         * @throws InvalidConditionException
+         * @static 
+         */ 
+        public static function condition($condition)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->condition($condition);
+        }
+        
+        /**
+         * get conditions applied on the cart
+         *
+         * @return \Darryldecode\Cart\CartConditionCollection 
+         * @static 
+         */ 
+        public static function getConditions()
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->getConditions();
+        }
+        
+        /**
+         * get condition applied on the cart by its name
+         *
+         * @param $conditionName
+         * @return \Darryldecode\Cart\CartCondition 
+         * @static 
+         */ 
+        public static function getCondition($conditionName)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->getCondition($conditionName);
+        }
+        
+        /**
+         * Get all the condition filtered by Type
+         * Please Note that this will only return condition added on cart bases, not those conditions added
+         * specifically on an per item bases
+         *
+         * @param $type
+         * @return \Darryldecode\Cart\CartConditionCollection 
+         * @static 
+         */ 
+        public static function getConditionsByType($type)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->getConditionsByType($type);
+        }
+        
+        /**
+         * Remove all the condition with the $type specified
+         * Please Note that this will only remove condition added on cart bases, not those conditions added
+         * specifically on an per item bases
+         *
+         * @param $type
+         * @return \Darryldecode\Cart\Cart 
+         * @static 
+         */ 
+        public static function removeConditionsByType($type)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->removeConditionsByType($type);
+        }
+        
+        /**
+         * removes a condition on a cart by condition name,
+         * this can only remove conditions that are added on cart bases not conditions that are added on an item/product.
+         * 
+         * If you wish to remove a condition that has been added for a specific item/product, you may
+         * use the removeItemCondition(itemId, conditionName) method instead.
+         *
+         * @param $conditionName
+         * @return void 
+         * @static 
+         */ 
+        public static function removeCartCondition($conditionName)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        $instance->removeCartCondition($conditionName);
+        }
+        
+        /**
+         * remove a condition that has been applied on an item that is already on the cart
+         *
+         * @param $itemId
+         * @param $conditionName
+         * @return bool 
+         * @static 
+         */ 
+        public static function removeItemCondition($itemId, $conditionName)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->removeItemCondition($itemId, $conditionName);
+        }
+        
+        /**
+         * remove all conditions that has been applied on an item that is already on the cart
+         *
+         * @param $itemId
+         * @return bool 
+         * @static 
+         */ 
+        public static function clearItemConditions($itemId)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->clearItemConditions($itemId);
+        }
+        
+        /**
+         * clears all conditions on a cart,
+         * this does not remove conditions that has been added specifically to an item/product.
+         * 
+         * If you wish to remove a specific condition to a product, you may use the method: removeItemCondition($itemId, $conditionName)
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function clearCartConditions()
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        $instance->clearCartConditions();
+        }
+        
+        /**
+         * get cart sub total without conditions
+         *
+         * @param bool $formatted
+         * @return float 
+         * @static 
+         */ 
+        public static function getSubTotalWithoutConditions($formatted = true)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->getSubTotalWithoutConditions($formatted);
+        }
+        
+        /**
+         * get cart sub total
+         *
+         * @param bool $formatted
+         * @return float 
+         * @static 
+         */ 
+        public static function getSubTotal($formatted = true)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->getSubTotal($formatted);
+        }
+        
+        /**
+         * the new total in which conditions are already applied
+         *
+         * @return float 
+         * @static 
+         */ 
+        public static function getTotal()
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->getTotal();
+        }
+        
+        /**
+         * get total quantity of items in the cart
+         *
+         * @return int 
+         * @static 
+         */ 
+        public static function getTotalQuantity()
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->getTotalQuantity();
+        }
+        
+        /**
+         * get the cart
+         *
+         * @return \Darryldecode\Cart\CartCollection 
+         * @static 
+         */ 
+        public static function getContent()
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->getContent();
+        }
+        
+        /**
+         * check if cart is empty
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function isEmpty()
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->isEmpty();
+        }
+        
+        /**
+         * Setter for decimals. Change value on demand.
+         *
+         * @param $decimals
+         * @static 
+         */ 
+        public static function setDecimals($decimals)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->setDecimals($decimals);
+        }
+        
+        /**
+         * Setter for decimals point. Change value on demand.
+         *
+         * @param $dec_point
+         * @static 
+         */ 
+        public static function setDecPoint($dec_point)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->setDecPoint($dec_point);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function setThousandsSep($thousands_sep)
+        {
+                        /** @var \Darryldecode\Cart\Cart $instance */
+                        return $instance->setThousandsSep($thousands_sep);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -17039,6 +17413,8 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class Cart extends \Darryldecode\Cart\Facades\CartFacade {}
  
 }
 

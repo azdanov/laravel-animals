@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Pet;
 use Exception;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,7 +15,8 @@ class PetsController extends Controller
 {
     public function index(): string
     {
-        return Pet::with('category')
+        return Pet::with('category:id,name,description,display_order,image')
+            ->select(['id', 'description', 'name', 'price', 'image', 'category_id'])
             ->get()
             ->mapToGroups(static function ($pet) {
                 return [$pet->category->name => $pet];

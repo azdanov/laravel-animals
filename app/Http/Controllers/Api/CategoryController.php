@@ -14,7 +14,9 @@ class CategoryController extends Controller
 {
     public function index(): string
     {
-        return Category::all()->toJson();
+        return Category::select(
+            ['id', 'name', 'description', 'display_order', 'image']
+        )->get()->toJson();
     }
 
     /** @return array<string, int> */

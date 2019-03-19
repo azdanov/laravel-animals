@@ -16,16 +16,20 @@ Route::group(
     static function (): void {
         Route::get('categories', 'CategoryController@index');
         Route::get('pets', 'PetsController@index');
+        Route::get('cart', 'CartController@index');
 
         Route::post('categories', 'CategoryController@store');
         Route::post('pets', 'PetsController@store');
         Route::post('images', 'ImageController@store');
+        Route::post('cart', 'CartController@store');
 
         Route::put('categories/{category}', 'CategoryController@update');
         Route::put('pets/{pet}', 'PetsController@update');
+        Route::patch('cart/{item}', 'CartController@update');
 
         Route::delete('categories/{category}', 'CategoryController@destroy');
         Route::delete('pets/{pet}', 'PetsController@destroy');
         Route::delete('images/{file}', 'ImageController@destroy');
+        Route::delete('cart/{item}', 'CartController@destroy');
     }
 );
