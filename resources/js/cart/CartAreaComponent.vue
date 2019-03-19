@@ -12,7 +12,13 @@
     </section>
     <div class="container">
       <div class="columns is-marginless is-centered">
-        <div class="column is-7">
+        <div v-if="Object.entries(cart).length == 0" class="column is-7">
+          <p class="title has-text-centered">Looks like the cart is empty.</p>
+          <p class="subtitle has-text-centered">
+            How about some <a href="pets">pet shopping?</a>
+          </p>
+        </div>
+        <div v-else class="column is-7">
           <b-table
             :data="data"
             :columns="columns"
@@ -31,8 +37,12 @@
           <div class="columns mt-4">
             <div class="column is-5">
               <div class="buttons has-addons">
-                <button class="button is-outlined">Clear Cart</button>
-                <button class="button is-outlined">Remove Item</button>
+                <button class="button is-outlined" @click="clearCart()">
+                  Clear Cart
+                </button>
+                <button class="button is-outlined" @click="removeItem()">
+                  Remove Item
+                </button>
               </div>
             </div>
             <div class="column is-3">
@@ -97,25 +107,41 @@ export default {
       }))
     },
     selected() {
+      if (this.selectedId == null) return null
+
       return this.data.filter(({ id }) => id == this.selectedId).pop()
     },
     cartItem() {
+      if (this.selectedId == null) return null
+
       return Object.values(this.cart)
         .filter(({ id }) => id == this.selectedId)
         .pop()
     },
   },
   async mounted() {
-    const cart = await api.get('cart').json()
+    let cart
+    try {
+      cart = await api.get('cart').json()
+    } catch (e) {
+      console.log(e)
+      return
+    }
 
     this.assignCart(cart)
   },
   methods: {
     currency,
     select(row) {
-      this.selectedId = row.id
+      if (this.selectedId == row.id) {
+        this.selectedId = null
+      } else {
+        this.selectedId = row.id
+      }
     },
     assignCart(cart) {
+      if (cart == null) return
+
       this.total = cart.total
       this.quantity = cart.quantity
       delete cart.total
@@ -124,7 +150,7 @@ export default {
       this.cart = Object.assign({}, this.cart, cart)
     },
     async changeQuantity(amount) {
-      if (amount < 0 && this.cartItem.quantity <= 1) {
+      if (this.selectedId == null || (amount < 0 && this.cartItem.quantity <= 1)) {
         return
       }
 
@@ -135,6 +161,43 @@ export default {
         .json()
 
       this.assignCart(cart)
+    },
+    async removeItem() {
+      if (this.selectedId == null) {
+        return
+      }
+
+      let cart
+      try {
+        cart = await api.delete(`cart/${this.selected.id}`).json()
+      } catch (e) {
+        this.$toast.open({
+          message: 'Cart is empty.',
+          type: 'is-primary',
+          position: 'is-bottom',
+        })
+      }
+
+      this.$toast.open({
+        message: `${this.cartItem.name} was deleted.`,
+        type: 'is-primary',
+        position: 'is-bottom',
+      })
+
+      this.$delete(this.cart, this.selectedId)
+
+      this.assignCart(cart)
+    },
+    async clearCart() {
+      await api.delete(`cart/clear`)
+
+      this.cart = Object.assign({})
+
+      this.$toast.open({
+        message: 'Cart is empty.',
+        type: 'is-primary',
+        position: 'is-bottom',
+      })
     },
   },
 }

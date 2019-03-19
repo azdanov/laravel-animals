@@ -119,9 +119,9 @@ class ApiCartTest extends TestCase
 
         $response = $this->delete('/api/cart/' . $new['id']);
 
-        $result = $response->json();
+        $result = json_decode($response->getContent(), true);
 
-        self::assertNull(array_pop($result));
+        self::assertNull($result);
     }
 
     public function testClearItem(): void

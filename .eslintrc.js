@@ -8,7 +8,6 @@ module.exports = {
   plugins: ['vue', 'sort-imports-es6-autofix'],
   rules: {
     'vue/camelcase': 1,
-    'vue/eqeqeq': 1,
     'vue/component-name-in-template-casing': [
       1,
       'kebab-case',

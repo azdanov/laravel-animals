@@ -71,6 +71,15 @@ class CartController extends Controller
         Cart::session($request->user()->id);
         Cart::remove($item);
 
-        return Cart::getContent()->toJson();
+        $cart = Cart::getContent();
+
+        if ($cart->isEmpty()) {
+            return '';
+        }
+
+        $cart->put('quantity', Cart::getTotalQuantity())
+            ->put('total', Cart::getTotal());
+
+        return $cart->toJson();
     }
 }
