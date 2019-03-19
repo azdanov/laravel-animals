@@ -109,7 +109,6 @@ class ApiCartTest extends TestCase
 
     public function testRemoveItem(): void
     {
-        $this->withoutExceptionHandling();
         Passport::actingAs(factory(User::class)->create());
 
         $new = Pet::inRandomOrder()->first()->toArray();
@@ -122,5 +121,53 @@ class ApiCartTest extends TestCase
         $result = json_decode($response->getContent(), true);
 
         self::assertNull(array_pop($result));
+    }
+
+    public function testClearItem(): void
+    {
+        $this->withoutExceptionHandling();
+        Passport::actingAs(factory(User::class)->create());
+
+        $new = Pet::inRandomOrder()->first()->toArray();
+        $new['quantity'] = 1;
+        $this->json('POST', '/api/cart', $new)
+            ->assertStatus(200);
+
+        $this->delete('/api/cart/clear')->assertStatus(200);
+        $response = $this->get('/api/cart');
+
+        $result = json_decode($response->getContent(), true);
+
+        self::assertNull(array_pop($result));
+    }
+
+    public function testTotal(): void
+    {
+        $this->withoutExceptionHandling();
+        Passport::actingAs(factory(User::class)->create());
+
+        $new = Pet::inRandomOrder()->first()->toArray();
+        $new['quantity'] = 1;
+        $this->json('POST', '/api/cart', $new)
+            ->assertStatus(200);
+
+        $response = $this->get('/api/cart/total');
+
+        self::assertEquals($new['price'], $response->getContent());
+    }
+
+    public function testTotalQuantity(): void
+    {
+        $this->withoutExceptionHandling();
+        Passport::actingAs(factory(User::class)->create());
+
+        $new = Pet::inRandomOrder()->first()->toArray();
+        $new['quantity'] = 1;
+        $this->json('POST', '/api/cart', $new)
+            ->assertStatus(200);
+
+        $response = $this->get('/api/cart/quantity');
+
+        self::assertEquals($new['quantity'], $response->getContent());
     }
 }

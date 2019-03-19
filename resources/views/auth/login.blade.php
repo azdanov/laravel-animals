@@ -68,7 +68,7 @@
                   </span>
                   </p>
                   <p class="help is-dark">
-                    <span class="is-unselectable">Test Password:</span>password
+                    <span class="is-unselectable">Test Password:</span> password
                   </p>
                   @if ($errors->has('password'))
                     <p class="help is-danger">{{ $errors->first('password') }}</p>
