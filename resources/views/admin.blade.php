@@ -3,7 +3,7 @@
 @section('title', 'Admin')
 
 @section('assets')
-  <script src="{{ asset('js/admin.js') }}" defer></script>
+  <script src="{{ mix('js/admin.js') }}" defer></script>
 @endsection
 
 @section('content')

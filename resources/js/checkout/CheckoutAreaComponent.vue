@@ -12,7 +12,7 @@
     </section>
     <div class="container">
       <div class="columns is-marginless is-centered">
-        <div v-if="Object.entries(cart).length == 0" class="column is-7">
+        <div v-if="Object.entries(cart).length == 0" class="column is-7 mt-5">
           <p class="title has-text-centered">Looks like the cart is empty.</p>
           <p class="subtitle has-text-centered">
             How about some <a href="pets">pet shopping?</a>
@@ -70,7 +70,7 @@ import { currency } from '../helpers'
 import api from '../api'
 
 export default {
-  name: 'CartAreaComponent',
+  name: 'CheckoutAreaComponent',
   data() {
     return {
       cart: {},
@@ -191,7 +191,7 @@ export default {
     async clearCart() {
       await api.delete(`cart/clear`)
 
-      this.cart = Object.assign({})
+      this.cart = {}
 
       this.$toast.open({
         message: 'Cart is empty.',

@@ -3,10 +3,10 @@
 @section('title', 'Cart')
 
 @section('assets')
-  <script src="{{ asset('js/cart.js') }}" defer></script>
+  <script src="{{ mix('js/checkout.js') }}" defer></script>
 @endsection
 
 @section('content')
-  <cart-area></cart-area>
+  <checkout-area></checkout-area>
 @endsection
 
