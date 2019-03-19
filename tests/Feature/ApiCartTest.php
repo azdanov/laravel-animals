@@ -11,6 +11,7 @@ use Laravel\Passport\Passport;
 use Tests\TestCase;
 use function array_pop;
 use function json_decode;
+use function reset;
 
 class ApiCartTest extends TestCase
 {
@@ -45,7 +46,7 @@ class ApiCartTest extends TestCase
         $response = $this->json('POST', '/api/cart', $new);
         $response->assertStatus(200);
 
-        $result = json_decode($response->getContent(), true);
+        $result = $response->json();
 
         $expected = [
             'id' => $new['id'],
@@ -55,7 +56,7 @@ class ApiCartTest extends TestCase
             'attributes' => [],
             'conditions' => [],
         ];
-        self::assertSame($expected, array_pop($result));
+        self::assertSame($expected, $result[2]);
     }
 
     public function testShowItem(): void
@@ -69,7 +70,7 @@ class ApiCartTest extends TestCase
 
         $response = $this->get('/api/cart');
 
-        $result = json_decode($response->getContent(), true);
+        $result = $response->json();
 
         $expected = [
             'id' => $new['id'],
@@ -79,7 +80,7 @@ class ApiCartTest extends TestCase
             'attributes' => [],
             'conditions' => [],
         ];
-        self::assertSame($expected, array_pop($result));
+        self::assertSame($expected, reset($result));
     }
 
     public function testModifyItem(): void
@@ -94,7 +95,7 @@ class ApiCartTest extends TestCase
 
         $response = $this->patch('/api/cart/' . $new['id'], ['quantity' => +1]);
 
-        $result = json_decode($response->getContent(), true);
+        $result = $response->json();
 
         $expected = [
             'id' => $new['id'],
@@ -104,7 +105,7 @@ class ApiCartTest extends TestCase
             'attributes' => [],
             'conditions' => [],
         ];
-        self::assertSame($expected, array_pop($result));
+        self::assertSame($expected, reset($result));
     }
 
     public function testRemoveItem(): void
@@ -118,7 +119,7 @@ class ApiCartTest extends TestCase
 
         $response = $this->delete('/api/cart/' . $new['id']);
 
-        $result = json_decode($response->getContent(), true);
+        $result = $response->json();
 
         self::assertNull(array_pop($result));
     }
@@ -138,7 +139,7 @@ class ApiCartTest extends TestCase
 
         $result = json_decode($response->getContent(), true);
 
-        self::assertNull(array_pop($result));
+        self::assertNull($result);
     }
 
     public function testTotal(): void
@@ -153,7 +154,7 @@ class ApiCartTest extends TestCase
 
         $response = $this->get('/api/cart/total');
 
-        self::assertEquals($new['price'], $response->getContent());
+        self::assertSame($new['price'], (float) $response->getContent());
     }
 
     public function testTotalQuantity(): void
@@ -168,6 +169,6 @@ class ApiCartTest extends TestCase
 
         $response = $this->get('/api/cart/quantity');
 
-        self::assertEquals($new['quantity'], $response->getContent());
+        self::assertSame($new['quantity'], (int) $response->getContent());
     }
 }

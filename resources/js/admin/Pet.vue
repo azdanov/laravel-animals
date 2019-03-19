@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import { currency } from '../helpers'
+
 export default {
   name: 'Pet',
   props: { slug: { type: String, default: null } },
@@ -53,10 +55,7 @@ export default {
     },
   },
   methods: {
-    currency: new Intl.NumberFormat('et', {
-      style: 'currency',
-      currency: 'EUR',
-    }).format,
+    currency,
     deletePet(id) {
       if (confirm(`Delete ${this.pet.name} from ${this.pet.category.name}?`)) {
         this.$store.dispatch('deletePet', id).then(() => {

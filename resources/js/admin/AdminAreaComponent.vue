@@ -45,7 +45,7 @@ import Pet from './Pet'
 import PetList from './PetList'
 import PetModify from './PetModify'
 import VueRouter from 'vue-router'
-import store from '../store'
+import store from '../store/admin'
 
 export default {
   store,

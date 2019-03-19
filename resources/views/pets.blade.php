@@ -25,7 +25,7 @@
       <div class="column is-7">
 
         @foreach ($categories as $category)
-          <nav class="card">
+          <nav class="card mb-5">
             <header class="card-header">
               <p id="{{ Str::slug($category->name) }}"
                  class="card-header-title is-size-4">

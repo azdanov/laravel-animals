@@ -16,7 +16,16 @@ class CartController extends Controller
     {
         Cart::session($request->user()->id);
 
-        return Cart::getContent()->toJson();
+        $cart = Cart::getContent();
+
+        if ($cart->isEmpty()) {
+            return '';
+        }
+
+        $cart->put('quantity', Cart::getTotalQuantity())
+            ->put('total', Cart::getTotal());
+
+        return $cart->toJson();
     }
 
     /** @throws Exception */
@@ -31,7 +40,10 @@ class CartController extends Controller
         Cart::session($request->user()->id);
         Cart::add($data);
 
-        return Cart::getContent()->toJson();
+        return Cart::getContent()
+            ->put('quantity', Cart::getTotalQuantity())
+            ->put('total', Cart::getTotal())
+            ->toJson();
     }
 
     /** @throws Exception */
@@ -43,10 +55,14 @@ class CartController extends Controller
             'price' => 'nullable|numeric',
             'quantity' => 'nullable|numeric',
         ]);
+
         Cart::session($request->user()->id);
         Cart::update($item, $data);
 
-        return Cart::getContent()->toJson();
+        return Cart::getContent()
+            ->put('quantity', Cart::getTotalQuantity())
+            ->put('total', Cart::getTotal())
+            ->toJson();
     }
 
     /** @throws Exception */

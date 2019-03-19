@@ -34,7 +34,7 @@ Route::group(
                 Route::get('cart/total', 'CartTotalController@index');
                 Route::get('cart/quantity', 'CartTotalQuantityController@index');
 
-                Route::post('cart', 'CartController@store');
+                Route::post('cart', 'CartController@store')->name('api.cart-add');
 
                 Route::patch('cart/{item}', 'CartController@update');
 

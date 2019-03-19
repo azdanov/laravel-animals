@@ -1,5 +1,4 @@
-import './api'
-import AdminAreaComponent from './components/AdminAreaComponent'
+import AdminAreaComponent from './admin/AdminAreaComponent'
 import Buefy from 'buefy'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
