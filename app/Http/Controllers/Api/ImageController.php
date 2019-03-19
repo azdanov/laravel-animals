@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Throwable;
 use const PATHINFO_EXTENSION;
 use const PATHINFO_FILENAME;
 use function pathinfo;
@@ -14,10 +15,16 @@ use function str_replace;
 
 class ImageController extends Controller
 {
-    /** @return mixed[] */
-    public function store(Request $request): array
+    /**
+     * @return void|array<string, string>
+     *
+     * @throws Throwable
+     */
+    public function store(Request $request)
     {
         $file = $request->file('file');
+
+        abort_if($file === null, 400);
 
         // FIXME: Bug with SVG extension guessing
         $filename = pathinfo($file->hashName(), PATHINFO_FILENAME);
@@ -31,6 +38,8 @@ class ImageController extends Controller
             $file,
             $filename . '.' . $extension
         );
+
+        abort_if($path === false, 500);
 
         return ['message' => str_replace(config('app.image_path') . '/', '', $path)];
     }

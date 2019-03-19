@@ -12,15 +12,12 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
-    /**
-     * @return mixed[]
-     */
     public function index(): string
     {
         return Category::all()->toJson();
     }
 
-    /** @return mixed[] */
+    /** @return array<string, int> */
     public function store(Request $request): array
     {
         $category = Category::create($request->validate([
@@ -33,7 +30,7 @@ class CategoryController extends Controller
         return ['id' => $category->id];
     }
 
-    /** @return mixed[] */
+    /** @return array<string, int> */
     public function update(Request $request, Category $category): array
     {
         $category->update($request->validate([
@@ -47,7 +44,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @return mixed[]
+     * @return array<string, string>
      *
      * @throws Exception
      */

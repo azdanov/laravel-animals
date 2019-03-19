@@ -35,7 +35,7 @@ use Illuminate\Support\Carbon;
  */
 class Category extends Model
 {
-    /** @var string[] */
+    /** @var array<string> */
     protected $guarded = [];
 
     public function pets(): HasMany

@@ -25,7 +25,8 @@ class LoginController extends Controller
 
     public function showLoginForm(): Renderable
     {
-        $user = User::whereId(1)->first();
+        $user = User::whereId('1')->first();
+
         return view('auth.login')->with(compact('user'));
     }
 }

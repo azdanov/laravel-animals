@@ -21,7 +21,7 @@ class PetsController extends Controller
             })->toJson();
     }
 
-    /** @return mixed[] */
+    /** @return array<string, int> */
     public function store(Request $request): array
     {
         $pet = Pet::create($request->validate([
@@ -35,7 +35,7 @@ class PetsController extends Controller
         return ['id' => $pet->id];
     }
 
-    /** @return mixed[] */
+    /** @return array<string, int> */
     public function update(Request $request, Pet $pet): array
     {
         $pet->update($request->validate([
@@ -50,7 +50,7 @@ class PetsController extends Controller
     }
 
     /**
-     * @return mixed[]
+     * @return array<string, string>
      *
      * @throws Exception
      */

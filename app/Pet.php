@@ -36,7 +36,7 @@ use Illuminate\Support\Carbon;
  */
 class Pet extends Model
 {
-    /** @var string[] */
+    /** @var array<string> */
     protected $guarded = [];
 
     public function category(): BelongsTo

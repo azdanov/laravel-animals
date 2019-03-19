@@ -49,12 +49,12 @@ class User extends Authenticatable
     use Notifiable;
     use HasApiTokens;
 
-    /** @var string[] */
+    /** @var array<string> */
     protected $fillable = ['name', 'email', 'password'];
 
-    /** @var string[] */
+    /** @var array<string> */
     protected $hidden = ['password', 'remember_token'];
 
-    /** @var string[] */
+    /** @var array<string> */
     protected $casts = ['email_verified_at' => 'datetime'];
 }
