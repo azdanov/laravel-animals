@@ -1,5 +1,8 @@
 @php
   /** @var \App\Pet $pet */
+  /** @var bool $in_cart */
+  /** @var \App\User $user */
+  $user = Auth::user();
 @endphp
 <article class="media">
   <figure class="media-left">
@@ -18,15 +21,21 @@
         <small class="has-left-dash">@money($pet->price, 'EUR', true)</small>
         <br>
         <p>{{ $pet->description }}</p>
-        <form action="{{ route('cart-add') }}" method="post">
-          @csrf()
-          <input type="text" hidden name="id" value="{{$pet->id}}">
-          <input type="text" hidden name="name" value="{{$pet->name}}">
-          <input type="text" hidden name="price" value="{{$pet->price}}">
-          <input type="text" hidden name="quantity" value="1">
+        <form action="{{ $in_cart ? '' : route('cart-add') }}" method="post">
+          @unless($in_cart)
+            @csrf()
+            <input type="text" hidden name="id" value="{{$pet->id}}">
+            <input type="text" hidden name="name" value="{{$pet->name}}">
+            <input type="text" hidden name="price" value="{{$pet->price}}">
+            <input type="text" hidden name="quantity" value="1">
+          @endif
           <div class="field">
             <div class="control">
-              <button class="button is-link is-outlined">Add to cart</button>
+              <button
+                class="button is-link is-outlined{{$user && !$in_cart ? '' : 'is-disabled'}}"
+                {{$user && !$in_cart ? '' : 'disabled'}}>
+                {{$in_cart ? 'Already in cart' : 'Add to cart'}}
+              </button>
             </div>
           </div>
         </form>
