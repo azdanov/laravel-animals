@@ -5,23 +5,24 @@
   $user = Auth::user();
 @endphp
 <article class="media">
-  <figure class="media-left">
+  <figure class="media-left mt-2">
     <a href="{{ asset('images/' . $pet->image) }}" class="image is-64x64">
       <img
-        class="has-round-corners mt-2 mt-2"
+        class="has-round-corners"
         src="{{ asset('images/' . $pet->image) }}"
         alt="{{ $pet->name }}"
       >
     </a>
   </figure>
-  <div class="media-content">
+  <div class="media-content mr-2">
     <div class="content">
       <div>
         <strong>{{ $pet->name }}</strong>
         <small class="has-left-dash">@money($pet->price, 'EUR', true)</small>
         <br>
-        <p>{{ $pet->description }}</p>
-        <form action="{{ $in_cart ? '' : route('cart-add') }}" method="post">
+        <p class="has-text-justified">{{ $pet->description }}</p>
+        <form class="" action="{{ $in_cart ? '' : route('cart-add') }}"
+              method="post">
           @unless($in_cart)
             @csrf()
             <input type="text" hidden name="id" value="{{$pet->id}}">
@@ -32,7 +33,7 @@
           <div class="field">
             <div class="control">
               <button
-                class="button is-link is-outlined{{$user && !$in_cart ? '' : 'is-disabled'}}"
+                class="button is-fullwidth pet__button is-outlined{{$user && !$in_cart ? '' : 'is-disabled'}}"
                 {{$user && !$in_cart ? '' : 'disabled'}}>
                 {{$in_cart ? 'Already in cart' : 'Add to cart'}}
               </button>

@@ -25,11 +25,11 @@
 
     <div class="navbar-menu" id="navMenu">
       <div class="navbar-start is-unselectable">
-        <a href="{{ route('home') }}" class="navbar-item">Home</a>
+        <a href="{{ route('home') }}" class="navbar-item{{ request()->is('/') ? ' is-active' : '' }}">Home</a>
 
-        <a href="{{ route('pets') }}" class="navbar-item">Pets</a>
+        <a href="{{ route('pets') }}" class="navbar-item{{ request()->is('pets') ? ' is-active' : '' }}">Pets</a>
 
-        <a href="{{ route('about') }}" class="navbar-item">About</a>
+        <a href="{{ route('about') }}" class="navbar-item{{ request()->is('about') ? ' is-active' : '' }}">About</a>
       </div>
 
       <div class="navbar-end is-unselectable">
@@ -55,6 +55,7 @@
                 <hr class="navbar-divider">
               @endif
               <a
+                id="navbar-cart"
                 class="navbar-item"
                 href="{{ route('cart') }}"
               >Cart{{$cart_total ? " ({$cart_total})" : ''}}</a>

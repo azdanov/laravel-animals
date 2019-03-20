@@ -1,6 +1,6 @@
 @import '~buefy/src/scss/buefy-build';
 @import 'spacing';
-@import "icons.css";
+@import 'icons.css';
 
 #app {
   display: flex;
@@ -44,6 +44,7 @@
 .navbar-item.has-dropdown.is-active .navbar-link {
   background-color: hsl(0, 0%, 98%);
 }
+
 .navbar-item.is-active .navbar-dropdown,
 .navbar-item.is-hoverable:focus-within .navbar-dropdown {
   display: block;
@@ -75,3 +76,11 @@
   text-align: center;
 }
 
+.pets,
+.about {
+  margin-top: -6rem;
+}
+
+.footer {
+  background-color: hsl(250, 60%, 98%);
+}

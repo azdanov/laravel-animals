@@ -8,8 +8,8 @@
 @section('title', 'Pets')
 
 @section('content')
-  <section class="hero">
-    <div class="hero-body">
+  <section class="hero is-primary is-bold">
+    <div class="hero-body mt-4 mb-7">
       <div class="container has-text-centered">
         <h1 class="title">
           Pets Selection
@@ -20,7 +20,7 @@
       </div>
     </div>
   </section>
-  <div class="container">
+  <div class="container pets">
     <div class="columns is-marginless is-centered">
       <div class="column is-7">
 

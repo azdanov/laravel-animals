@@ -73,7 +73,7 @@
       </div>
     @endIf
   </div>
-  <footer class="footer p-5 mt-5">
+  <footer class="footer p-5 mt-6">
     <div class="content has-text-centered">
       <p>© {{ now()->year }}</p>
     </div>

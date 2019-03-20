@@ -12,7 +12,15 @@
     </section>
     <div class="container">
       <div class="columns is-marginless is-centered">
-        <div v-if="Object.entries(cart).length == 0" class="column is-7 mt-5">
+        <div v-if="loading" class="column is-7 mt-5">
+          <b-loading
+            :is-full-page="true"
+            :active.sync="loading"
+            :can-cancel="true"
+          ></b-loading>
+          <p class="subtitle has-text-centered">Loading…</p>
+        </div>
+        <div v-else-if="Object.entries(cart).length == 0" class="column is-7 mt-5">
           <p class="title has-text-centered">Looks like the cart is empty.</p>
           <p class="subtitle has-text-centered">
             How about some <a href="pets">pet shopping?</a>
@@ -77,6 +85,7 @@ export default {
       selectedId: null,
       total: null,
       quantity: null,
+      loading: false,
       columns: [
         {
           field: 'name',
@@ -121,17 +130,24 @@ export default {
   },
   async mounted() {
     let cart
+    this.loading = true
     try {
       cart = await api.get('cart').json()
     } catch (e) {
       console.log(e)
+      this.loading = false
       return
     }
 
+    this.loading = false
     this.assignCart(cart)
   },
   methods: {
     currency,
+    updateNavbar() {
+      document.querySelector('#navbar-cart').textContent =
+        this.cart.length > 0 ? `Cart (${this.cart.length})` : 'Cart'
+    },
     select(row) {
       if (this.selectedId == row.id) {
         this.selectedId = null
@@ -185,6 +201,7 @@ export default {
       })
 
       this.$delete(this.cart, this.selectedId)
+      this.updateNavbar()
 
       this.assignCart(cart)
     },
@@ -198,6 +215,7 @@ export default {
         type: 'is-primary',
         position: 'is-bottom',
       })
+      this.updateNavbar()
     },
   },
 }

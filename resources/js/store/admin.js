@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import api from '../api'
 import slugify from '@sindresorhus/slugify'
+const pSettle = require('p-settle')
 
 Vue.use(Vuex)
 
@@ -28,7 +29,7 @@ export default new Vuex.Store({
       commit('SET_PET_GROUPS', petGroups)
     },
     async fetchAll({ dispatch }) {
-      Promise.all([dispatch('fetchCategories'), dispatch('fetchPetGroups')])
+      pSettle([dispatch('fetchCategories'), dispatch('fetchPetGroups')])
     },
     async deletePet({ dispatch }, id) {
       await api.delete(`pets/${id}`)
