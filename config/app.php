@@ -3,6 +3,23 @@
 declare(strict_types=1);
 
 return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Braintree
+    |--------------------------------------------------------------------------
+    |
+    | Braintree API keys and environment
+    |
+    */
+
+    'braintree' => [
+        'environment' => env('BRAINTREE_ENV', 'sandbox'),
+        'merchantId' => env('BRAINTREE_MERCHANT_ID', 'merchant_id'),
+        'publicKey' => env('BRAINTREE_PUBLIC_KEY', 'your_public_key'),
+        'privateKey' => env('BRAINTREE_PRIVATE_KEY', 'your_private_key'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -178,6 +195,7 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewProvider::class,
+        App\Providers\BraintreeServiceProvider::class,
     ],
 
     /*

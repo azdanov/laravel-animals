@@ -23,8 +23,8 @@ class CategoryController extends Controller
     public function store(Request $request): array
     {
         $category = Category::create($request->validate([
-            'name' => 'required|max:255|unique:categories',
-            'description' => 'required',
+            'name' => 'required|max:128|unique:categories',
+            'description' => 'required|max:512',
             'display_order' => 'required|numeric|unique:categories',
             'image' => 'required',
         ]));
@@ -36,8 +36,8 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category): array
     {
         $category->update($request->validate([
-            'name' => 'required|max:255|unique:categories,name,' . $category->id,
-            'description' => 'required',
+            'name' => 'required|max:128|unique:categories,name,' . $category->id,
+            'description' => 'required|max:512',
             'display_order' => 'required|numeric|unique:categories, display_order,' . $category->id,
             'image' => 'required',
         ]));

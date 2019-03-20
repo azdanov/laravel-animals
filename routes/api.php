@@ -16,6 +16,7 @@ Route::group(
     static function (): void {
         Route::get('categories', 'CategoryController@index');
         Route::get('pets', 'PetsController@index');
+        Route::get('braintree/token', 'BraintreeController@index');
 
         Route::post('categories', 'CategoryController@store');
         Route::post('pets', 'PetsController@store');
@@ -34,7 +35,8 @@ Route::group(
                 Route::get('cart/total', 'CartTotalController@index');
                 Route::get('cart/quantity', 'CartTotalQuantityController@index');
 
-                Route::post('cart', 'CartController@store')->name('api.cart-add');
+                Route::post('cart', 'CartController@store');
+                Route::post('cart/payment', 'CartPaymentController@store');
 
                 Route::patch('cart/{item}', 'CartController@update');
 

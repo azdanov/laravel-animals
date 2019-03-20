@@ -27,8 +27,8 @@ class PetsController extends Controller
     public function store(Request $request): array
     {
         $pet = Pet::create($request->validate([
-            'name' => 'required|unique:categories|max:255',
-            'description' => 'required',
+            'name' => 'required|unique:categories|max:128',
+            'description' => 'required|max:512',
             'image' => 'required',
             'price' => 'required|numeric|min:0',
             'category_id' => 'required|exists:categories,id',

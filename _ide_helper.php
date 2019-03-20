@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.8.4 on 2019-03-19 06:10:17.
+ * Generated for Laravel 5.8.4 on 2019-03-20 18:31:29.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -14819,6 +14819,8 @@ namespace  {
 
     class Cache extends \Illuminate\Support\Facades\Cache {}
 
+    class Cart extends \Darryldecode\Cart\Facades\CartFacade {}
+
     class Config extends \Illuminate\Support\Facades\Config {}
 
     class Cookie extends \Illuminate\Support\Facades\Cookie {}
@@ -17413,8 +17415,6 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
-
-    class Cart extends \Darryldecode\Cart\Facades\CartFacade {}
  
 }
 

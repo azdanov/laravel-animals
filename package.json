@@ -9,7 +9,9 @@
     "watch": "npm run development -- --watch",
     "watch-poll": "npm run watch -- --watch-poll"
   },
-  "dependencies": {},
+  "dependencies": {
+    "braintree-web-drop-in": "^1.16.0"
+  },
   "devDependencies": {
     "@sindresorhus/slugify": "^0.9.0",
     "babel-eslint": "^10.0.1",

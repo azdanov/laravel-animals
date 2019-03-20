@@ -22,7 +22,7 @@ class CartController extends Controller
     {
         $data = $request->validate([
             'id' => 'required|numeric',
-            'name' => 'required',
+            'name' => 'required|max:128',
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
         ]);

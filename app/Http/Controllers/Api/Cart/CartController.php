@@ -33,7 +33,7 @@ class CartController extends Controller
     {
         $data = $request->validate([
             'id' => 'required|numeric',
-            'name' => 'required',
+            'name' => 'required|max:128',
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
         ]);
@@ -51,7 +51,7 @@ class CartController extends Controller
     {
         $data = $request->validate([
             'id' => 'nullable|numeric',
-            'name' => 'nullable',
+            'name' => 'nullable|max:128',
             'price' => 'nullable|numeric',
             'quantity' => 'nullable|numeric',
         ]);

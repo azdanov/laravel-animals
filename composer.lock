@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88aaff563365a7a1d0096b55cf5a1984",
+    "content-hash": "e92d6712621f343064a4ccda4d8b0b73",
     "packages": [
         {
             "name": "akaunting/money",
@@ -66,6 +66,53 @@
                 "money"
             ],
             "time": "2019-02-25T12:34:37+00:00"
+        },
+        {
+            "name": "braintree/braintree_php",
+            "version": "3.39.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/braintree/braintree_php.git",
+                "reference": "19c6f50fa9fee1388ea5e7f556457243dc35a145"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/19c6f50fa9fee1388ea5e7f556457243dc35a145",
+                "reference": "19c6f50fa9fee1388ea5e7f556457243dc35a145",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-hash": "*",
+                "ext-openssl": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Braintree": "lib/"
+                },
+                "psr-4": {
+                    "Braintree\\": "lib/Braintree"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Braintree",
+                    "homepage": "https://www.braintreepayments.com"
+                }
+            ],
+            "description": "Braintree PHP Client Library",
+            "time": "2019-01-24T20:25:28+00:00"
         },
         {
             "name": "darryldecode/cart",
@@ -8022,5 +8069,7 @@
     "platform": {
         "php": "^7.3.3"
     },
-    "platform-dev": []
+    "platform-dev": {
+        "ext-json": "*"
+    }
 }
