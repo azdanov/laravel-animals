@@ -3,7 +3,10 @@
 Building a small shop with an admin panel made with `Vue`. This is an `Hybrid app` with parts
 made in plain `HTML` and others in `Vue` where SEO is not required.
 
-![Laravel Animals Screenshot](https://user-images.githubusercontent.com/6123841/54487258-8f6e9d80-489c-11e9-9536-9e616a7d0344.png "Laravel Animals Screenshot")
+| Main                                                                                                                      | User                                                                                                                               | Admin                                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![animals test_](https://user-images.githubusercontent.com/6123841/54782287-2df55880-4c27-11e9-8a94-c089876954c1.png)     | ![animals test_user_cart](https://user-images.githubusercontent.com/6123841/54782296-2fbf1c00-4c27-11e9-90e4-88d1b477e95c.png)     | ![animals test_admin_categories_cats](https://user-images.githubusercontent.com/6123841/54782290-2e8def00-4c27-11e9-9bca-52b5dc7faaed.png)     |
+| ![animals test_pets](https://user-images.githubusercontent.com/6123841/54782292-2e8def00-4c27-11e9-9cb0-c5bbc5e3525c.png) | ![animals test_user_cart (1)](https://user-images.githubusercontent.com/6123841/54782293-2e8def00-4c27-11e9-901b-763a3908d339.png) | ![animals test_admin_categories_cats (1)](https://user-images.githubusercontent.com/6123841/54782288-2df55880-4c27-11e9-9ce6-7b79a9e5ce21.png) |
 
 ## Getting started
 

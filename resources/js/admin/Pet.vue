@@ -25,16 +25,12 @@
       </div>
       <nav class="level is-mobile mt-4">
         <div class="level-left">
-          <button class="level-item button is-outlined" @click="editCategory(pet.id)">
-            <span class="icon">
-              <span class="icon-edit"></span>
-            </span>
+          <button class="level-item button is-outlined" @click="editPet(pet.id)">
+            <b-icon icon="pen"></b-icon>
             <span>Edit</span>
           </button>
           <button class="level-item button is-outlined" @click="deletePet(pet.id)">
-            <span class="icon">
-              <span class="icon-trash-o"></span>
-            </span>
+            <b-icon icon="delete"></b-icon>
             <span>Delete</span>
           </button>
         </div>
@@ -63,7 +59,7 @@ export default {
         })
       }
     },
-    editCategory() {
+    editPet() {
       this.$router.push(`/pets/${this.$slugify(this.pet.name)}/edit`)
     },
   },

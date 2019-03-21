@@ -29,14 +29,14 @@
         <nav class="level is-mobile mt-4">
           <div class="level-left">
             <button class="level-item button is-outlined" @click="editCategory()">
-              <b-icon custom-class="icon-edit"></b-icon>
+              <b-icon icon="pen"></b-icon>
               <span>Edit</span>
             </button>
             <button
               class="level-item button is-outlined"
               @click="deleteCategory(category.id)"
             >
-              <b-icon custom-class="icon-trash-o"></b-icon>
+              <b-icon icon="delete"></b-icon>
               <span>Delete</span>
             </button>
           </div>
