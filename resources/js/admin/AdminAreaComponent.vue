@@ -20,13 +20,19 @@
               <li :class="{ 'is-active': isActive('pets') }">
                 <router-link :to="{ name: 'pets' }">Pets</router-link>
               </li>
+              <li :class="{ 'is-active': isActive('orders') }">
+                <router-link :to="{ name: 'orders' }">Orders</router-link>
+              </li>
             </ul>
           </div>
           <div class="columns is-mobile">
-            <div class="column is-one-quarter-mobile is-one-fifth-tablet">
+            <div
+              v-show="!isActive('orders')"
+              class="column is-one-quarter-mobile is-one-fifth-tablet"
+            >
               <router-view></router-view>
             </div>
-            <div class="column is-two-thirds-desktop">
+            <div :class="['column', isActive('orders') ? '' : 'is-two-thirds-desktop']">
               <router-view :key="$route.fullPath" name="main"></router-view>
             </div>
           </div>
@@ -46,6 +52,7 @@ import PetList from './PetList'
 import PetModify from './PetModify'
 import VueRouter from 'vue-router'
 import store from '../store/admin'
+import Orders from './Orders'
 
 export default {
   store,
@@ -96,6 +103,13 @@ export default {
         props: {
           default: false,
           main: true,
+        },
+      },
+      {
+        path: '/orders',
+        name: 'orders',
+        components: {
+          main: Orders,
         },
       },
       {

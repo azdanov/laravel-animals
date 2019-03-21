@@ -86,7 +86,7 @@ export default {
     }
   },
   async mounted() {
-    const res = await api.get('orders').json()
+    const res = await api.get('user/orders').json()
 
     this.loading = false
 

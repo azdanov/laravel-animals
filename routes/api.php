@@ -17,7 +17,8 @@ Route::group(
         Route::get('categories', 'CategoryController@index');
         Route::get('pets', 'PetsController@index');
         Route::get('braintree/token', 'BraintreeController@index');
-        Route::get('orders', 'OrderController@index');
+        Route::get('orders', 'OrdersController@index');
+        Route::get('user/orders', 'UserOrdersController@index');
 
         Route::post('categories', 'CategoryController@store');
         Route::post('pets', 'PetsController@store');
