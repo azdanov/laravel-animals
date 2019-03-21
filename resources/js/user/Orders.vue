@@ -23,7 +23,6 @@
           </div>
           <b-table
             v-else
-            ref="table"
             :data="orders"
             paginated
             :per-page="perPage"
@@ -98,8 +97,6 @@ export default {
         total: order.quantity * order.price,
       }),
     )
-
-    this.$refs.table.initSort()
   },
   methods: {
     currency,
