@@ -113,7 +113,7 @@ export default {
             })
           }
 
-          this.$router.push('checkout', () => {
+          this.$router.push('orders', () => {
             document.querySelector('#navbar-cart').textContent = 'Cart'
 
             this.$toast.open({

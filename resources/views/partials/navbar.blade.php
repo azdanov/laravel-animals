@@ -25,11 +25,14 @@
 
     <div class="navbar-menu" id="navMenu">
       <div class="navbar-start is-unselectable">
-        <a href="{{ route('home') }}" class="navbar-item{{ request()->is('/') ? ' is-active' : '' }}">Home</a>
+        <a href="{{ route('home') }}"
+           class="navbar-item{{ request()->is('/') ? ' is-active' : '' }}">Home</a>
 
-        <a href="{{ route('pets') }}" class="navbar-item{{ request()->is('pets') ? ' is-active' : '' }}">Pets</a>
+        <a href="{{ route('pets') }}"
+           class="navbar-item{{ request()->is('pets') ? ' is-active' : '' }}">Pets</a>
 
-        <a href="{{ route('about') }}" class="navbar-item{{ request()->is('about') ? ' is-active' : '' }}">About</a>
+        <a href="{{ route('about') }}"
+           class="navbar-item{{ request()->is('about') ? ' is-active' : '' }}">About</a>
       </div>
 
       <div class="navbar-end is-unselectable">
@@ -57,8 +60,14 @@
               <a
                 id="navbar-cart"
                 class="navbar-item"
-                href="{{ route('user') }}/checkout"
+                href="{{ route('user') . '/cart' }}"
               >Cart{{$cart_total ? " ({$cart_total})" : ''}}</a>
+              <a
+                id="navbar-cart"
+                class="navbar-item"
+                href="{{ route('user') . '/orders' }}"
+              >Orders</a>
+              <hr class="navbar-divider">
               <a
                 class="navbar-item"
                 href="{{ route('logout') }}"

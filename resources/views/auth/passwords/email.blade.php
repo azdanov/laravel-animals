@@ -44,7 +44,7 @@
                       placeholder="user@example.com"
                     >
                     <span class="icon is-small is-left">
-                    <span class="icon-at"></span>
+                    <span class="mdi mdi-at"></span>
                   </span>
                   </p>
                   @if ($errors->has('email'))

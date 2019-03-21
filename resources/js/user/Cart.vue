@@ -13,17 +13,13 @@
     <div class="container">
       <div class="columns is-marginless is-centered">
         <div v-if="loading" class="column is-7 mt-5">
-          <b-loading
-            :is-full-page="true"
-            :active.sync="loading"
-            :can-cancel="true"
-          ></b-loading>
+          <b-loading :active.sync="loading" :can-cancel="true"></b-loading>
           <p class="subtitle has-text-centered">Loading…</p>
         </div>
         <div v-else-if="Object.entries(cart).length == 0" class="column is-7 mt-5">
           <p class="title has-text-centered">Looks like the cart is empty.</p>
           <p class="subtitle has-text-centered">
-            How about some <a href="pets">pet shopping?</a>
+            How about some <a href="/pets">pet shopping?</a>
           </p>
         </div>
         <div v-else class="column is-7">
@@ -84,7 +80,7 @@ import { currency } from '../helpers'
 import api from '../api'
 
 export default {
-  name: 'Checkout',
+  name: 'Cart',
   data() {
     return {
       cart: {},
@@ -225,10 +221,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.table {
-  font-variant-numeric: tabular-nums;
-}
+<style>
 tr.table-footer {
   font-weight: bold;
 }

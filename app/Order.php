@@ -28,6 +28,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Order whereQuantity($value)
  * @method static Builder|Order whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property int $user_id
+ * @property float $price
+ * @method static Builder|Order wherePrice($value)
+ * @method static Builder|Order whereUserId($value)
  */
 class Order extends Model
 {

@@ -1,6 +1,5 @@
 @import '~buefy/src/scss/buefy-build';
 @import 'spacing';
-@import 'icons.css';
 
 #app {
   display: flex;
@@ -83,4 +82,8 @@
 
 .footer {
   background-color: hsl(250, 60%, 98%);
+}
+
+.table {
+  font-variant-numeric: tabular-nums;
 }

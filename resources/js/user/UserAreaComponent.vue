@@ -3,9 +3,11 @@
 </template>
 
 <script>
-import Checkout from './Checkout'
+import Checkout from './Cart'
+import Orders from './Orders'
 import Payment from './Payment'
 import VueRouter from 'vue-router'
+import api from '../api'
 
 export default {
   name: 'UserAreaComponent',
@@ -14,18 +16,29 @@ export default {
     base: 'user',
     routes: [
       {
-        path: '/checkout',
-        name: 'checkout',
+        path: '/cart',
+        name: 'cart',
         component: Checkout,
       },
       {
         path: '/',
-        redirect: { name: 'checkout' },
+        redirect: { name: 'cart' },
       },
       {
         path: '/payment',
         name: 'payment',
         component: Payment,
+        beforeEnter: async (to, from, next) => {
+          const quantity = await api.get('cart/quantity').text()
+
+          if (quantity > 0) next()
+          else next('/')
+        },
+      },
+      {
+        path: '/orders',
+        name: 'orders',
+        component: Orders,
       },
       {
         path: '*',

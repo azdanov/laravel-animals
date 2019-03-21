@@ -6,6 +6,7 @@ namespace App;
 
 use Eloquent;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
@@ -43,6 +44,7 @@ use Laravel\Passport\Token;
  * @property Collection|Client[] $clients
  * @property Collection|Token[] $tokens
  * @method static Builder|User whereIsAdmin($value)
+ * @property-read Collection|Order[] $orders
  */
 class User extends Authenticatable
 {
@@ -57,4 +59,9 @@ class User extends Authenticatable
 
     /** @var array<string> */
     protected $casts = ['email_verified_at' => 'datetime'];
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
 }

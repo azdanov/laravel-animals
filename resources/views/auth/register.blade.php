@@ -34,7 +34,7 @@
                       placeholder="Jay Jones"
                     >
                     <span class="icon is-small is-left">
-                    <span class="icon-user-circle"></span>
+                    <span class="mdi mdi-account-outline"></span>
                   </span>
                   </p>
                   @if ($errors->has('name'))
@@ -61,7 +61,7 @@
                       placeholder="user@example.com"
                     >
                     <span class="icon is-small is-left">
-                    <span class="icon-at"></span>
+                    <span class="mdi mdi-at"></span>
                   </span>
                   </p>
                   @if ($errors->has('email'))
@@ -86,7 +86,7 @@
                       placeholder="********"
                     >
                     <span class="icon is-small is-left">
-                    <span class="icon-key"></span>
+                    <span class="mdi mdi-key"></span>
                   </span>
                   </p>
                   @if ($errors->has('password'))
@@ -111,7 +111,7 @@
                       placeholder="********"
                     >
                     <span class="icon is-small is-left">
-                    <span class="icon-key"></span>
+                    <span class="mdi mdi-key-plus"></span>
                   </span>
                   </p>
                 </div>

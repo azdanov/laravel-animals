@@ -33,14 +33,14 @@
                       required
                       autofocus
                       placeholder="user@example.com"
+                      onblur="this.value = this.value.trim()"
                     >
                     <span class="icon is-small is-left">
-                    <span class="icon-at"></span>
+                    <span class="mdi mdi-at"></span>
                   </span>
                   </p>
                   <p class="help is-dark">
-                    <span class="is-unselectable">Test Email:</span>
-                    {{ $user->email }}
+                    <span class="is-unselectable">Test Email: </span>{{ $user->email }}
                   </p>
                   @if ($errors->has('email'))
                     <p class="help is-danger">{{ $errors->first('email') }}</p>
@@ -64,11 +64,11 @@
                       placeholder="*********"
                     >
                     <span class="icon is-small is-left">
-                    <span class="icon-key"></span>
+                    <span class="mdi mdi-key"></span>
                   </span>
                   </p>
                   <p class="help is-dark">
-                    <span class="is-unselectable">Test Password:</span> password
+                    <span class="is-unselectable">Test Password: </span>password
                   </p>
                   @if ($errors->has('password'))
                     <p class="help is-danger">{{ $errors->first('password') }}</p>
