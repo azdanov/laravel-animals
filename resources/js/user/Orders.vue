@@ -21,7 +21,15 @@
               How about some <a href="/pets">pet shopping?</a>
             </p>
           </div>
-          <b-table v-else :data="orders" paginated per-page="3" default-sort="date">
+          <b-table
+            v-else
+            ref="table"
+            :data="orders"
+            paginated
+            :per-page="perPage"
+            :default-sort="defaultSort"
+            :default-sort-direction="defaultSortDirection"
+          >
             <template slot-scope="props">
               <b-table-column field="id" label="Order ID" sortable centered>
                 {{ props.row.id }}
@@ -39,7 +47,11 @@
                 {{ currency(props.row.price) }}
               </b-table-column>
 
-              <b-table-column field="date" label="Date" sortable centered>
+              <b-table-column field="total" label="Total" sortable numeric>
+                {{ currency(props.row.total) }}
+              </b-table-column>
+
+              <b-table-column field="created_at" label="Date" sortable centered>
                 <span class="tag">
                   {{
                     new Date(props.row.created_at).toLocaleDateString('en', {
@@ -68,6 +80,9 @@ export default {
     return {
       orders: [],
       loading: true,
+      perPage: 10,
+      defaultSort: 'created_at',
+      defaultSortDirection: 'desc',
     }
   },
   async mounted() {
@@ -75,7 +90,16 @@ export default {
 
     this.loading = false
 
-    res.forEach(order => this.orders.push(order))
+    res.forEach(order =>
+      this.orders.push({
+        ...order,
+        quantity: +order.quantity,
+        price: +order.price,
+        total: order.quantity * order.price,
+      }),
+    )
+
+    this.$refs.table.initSort()
   },
   methods: {
     currency,

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Carbon\Carbon;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 
@@ -13,7 +12,7 @@ $factory->define(App\Category::class, static function (Faker $faker) {
         'image' => $faker->imageUrl(),
         'description' => $faker->sentence,
         'display_order' => $faker->numberBetween(0, 10),
-        'created_at' => Carbon::now(),
-        'updated_at' => Carbon::now(),
+        'created_at' => $faker->dateTimeThisMonth()->format('Y-m-d H:i:s'),
+        'updated_at' => $faker->dateTimeThisMonth()->format('Y-m-d H:i:s'),
     ];
 });

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Order;
 use Illuminate\Database\Seeder;
 
 class UserTableSeeder extends Seeder
@@ -20,5 +21,7 @@ class UserTableSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ],
         ]);
+
+        factory(App\User::class, 9)->create();
     }
 }
