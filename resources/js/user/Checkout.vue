@@ -140,9 +140,7 @@ export default {
     try {
       cart = await api.get('cart').json()
     } catch (e) {
-      console.log(e)
-      this.loading = false
-      return
+      return (this.loading = false)
     }
 
     this.loading = false

@@ -57,7 +57,7 @@
               <a
                 id="navbar-cart"
                 class="navbar-item"
-                href="{{ route('cart') }}"
+                href="{{ route('user') }}/checkout"
               >Cart{{$cart_total ? " ({$cart_total})" : ''}}</a>
               <a
                 class="navbar-item"

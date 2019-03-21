@@ -22,11 +22,11 @@
 }
 
 .has-bg-img {
+  margin-top: -60px;
   background: linear-gradient(rgba($grey-lighter, 0.38), rgba($grey-lighter, 0.38)),
     url('../images/pets/catdog.jpg') center center;
   background-size: cover;
   width: 100%;
-  height: 100%;
 
   .title,
   .subtitle {

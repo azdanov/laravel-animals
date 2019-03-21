@@ -12,11 +12,6 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function index(): Renderable
-    {
-        return view('cart');
-    }
-
     /** @throws Exception */
     public function store(Request $request): RedirectResponse
     {

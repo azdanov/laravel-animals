@@ -14,9 +14,9 @@ Route::middleware('auth')->group(static function (): void {
         ->middleware('can:admin')
         ->where('any', '.*');
 
-    Route::get('/cart/{any?}', 'CartController@index')
-        ->name('cart')
+    Route::get('/user/{any?}', 'UserController')
+        ->name('user')
         ->where('any', '.*');
 
-    Route::post('cart', 'CartController@store')->name('cart-add');
+    Route::post('cart', 'CartController@store')->name('cart-store');
 });

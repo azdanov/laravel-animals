@@ -44,12 +44,11 @@ class ViewProvider extends ServiceProvider
             static function (\Illuminate\View\View $view): void {
                 $userId = Auth::id();
 
-                if ($userId === null) {
-                    return;
+                $in_cart = false;
+                if ($userId) {
+                    Cart::session($userId);
+                    $in_cart = Cart::get($view->pet->id) !== null;
                 }
-
-                Cart::session($userId);
-                $in_cart = Cart::get($view->pet->id) !== null;
 
                 $view->with(compact('in_cart'));
             }

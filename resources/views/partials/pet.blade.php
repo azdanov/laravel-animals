@@ -21,7 +21,7 @@
         <small class="has-left-dash">@money($pet->price, 'EUR', true)</small>
         <br>
         <p class="has-text-justified">{{ $pet->description }}</p>
-        <form class="" action="{{ $in_cart ? '' : route('cart-add') }}"
+        <form class="" action="{{ $in_cart ? '' : route('cart-store') }}"
               method="post">
           @unless($in_cart)
             @csrf()

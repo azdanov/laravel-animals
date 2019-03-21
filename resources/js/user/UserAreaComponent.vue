@@ -8,10 +8,10 @@ import Payment from './Payment'
 import VueRouter from 'vue-router'
 
 export default {
-  name: 'CheckoutAreaComponent',
+  name: 'UserAreaComponent',
   router: new VueRouter({
     mode: 'history',
-    base: 'cart',
+    base: 'user',
     routes: [
       {
         path: '/checkout',
