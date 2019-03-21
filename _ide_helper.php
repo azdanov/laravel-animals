@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.8.4 on 2019-03-20 18:31:29.
+ * Generated for Laravel 5.8.7 on 2019-03-21 19:23:47.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -3959,6 +3959,19 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
+         * Set the database reconnector callback.
+         *
+         * @param callable $reconnector
+         * @return void 
+         * @static 
+         */ 
+        public static function setReconnector($reconnector)
+        {
+                        /** @var \Illuminate\Database\DatabaseManager $instance */
+                        $instance->setReconnector($reconnector);
+        }
+        
+        /**
          * Get a schema builder instance for the connection.
          *
          * @return \Illuminate\Database\Schema\SQLiteBuilder 
@@ -4395,20 +4408,6 @@ namespace Illuminate\Support\Facades {
             //Method inherited from \Illuminate\Database\Connection            
                         /** @var \Illuminate\Database\SQLiteConnection $instance */
                         return $instance->setReadPdo($pdo);
-        }
-        
-        /**
-         * Set the reconnect instance on the connection.
-         *
-         * @param callable $reconnector
-         * @return \Illuminate\Database\SQLiteConnection 
-         * @static 
-         */ 
-        public static function setReconnector($reconnector)
-        {
-            //Method inherited from \Illuminate\Database\Connection            
-                        /** @var \Illuminate\Database\SQLiteConnection $instance */
-                        return $instance->setReconnector($reconnector);
         }
         
         /**
@@ -5769,6 +5768,20 @@ namespace Illuminate\Support\Facades {
         {
                         /** @var \Illuminate\Auth\Access\Gate $instance */
                         return $instance->any($abilities, $arguments);
+        }
+        
+        /**
+         * Determine if all of the given abilities should be denied for the current user.
+         *
+         * @param \Illuminate\Auth\Access\iterable|string $abilities
+         * @param array|mixed $arguments
+         * @return bool 
+         * @static 
+         */ 
+        public static function none($abilities, $arguments = array())
+        {
+                        /** @var \Illuminate\Auth\Access\Gate $instance */
+                        return $instance->none($abilities, $arguments);
         }
         
         /**
@@ -17430,6 +17443,7 @@ use Illuminate\Support\Collection;
 use Dotenv\Environment\DotenvFactory;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\HigherOrderTapProxy;
+use Dotenv\Environment\Adapter\PutenvAdapter;
 use Dotenv\Environment\Adapter\EnvConstAdapter;
 use Dotenv\Environment\Adapter\ServerConstAdapter;
 
@@ -18064,7 +18078,7 @@ if (! function_exists('env')) {
         static $variables;
 
         if ($variables === null) {
-            $variables = (new DotenvFactory([new EnvConstAdapter, new ServerConstAdapter]))->createImmutable();
+            $variables = (new DotenvFactory([new EnvConstAdapter, new PutEnvAdapter, new ServerConstAdapter]))->createImmutable();
         }
 
         return Option::fromValue($variables->get($key))
