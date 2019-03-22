@@ -80,6 +80,8 @@ For this example the demo is named: `laravel-animals`.
     heroku config:set --app laravel-animals APP_KEY=$(php artisan --no-ansi key:generate --show)
     heroku config:set --app laravel-animals APP_URL=$(heroku info -s | grep web_url | cut -d= -f2)
     heroku config:set --app laravel-animals MIX_APP_URL=$(heroku info -s | grep web_url | cut -d= -f2 | sed "s/\$/api/g")
+    heroku config:set --app laravel-animals APP_IMAGE_PATH=images
+    heroku config:set --app laravel-animals FILESYSTEM_DRIVER=heroku
     heroku config:set --app laravel-animals BRAINTREE_ENVIRONMENT=sandbox
     heroku config:set --app laravel-animals BRAINTREE_MERCHANT_ID=<id>
     heroku config:set --app laravel-animals BRAINTREE_PUBLIC_KEY=<key>
@@ -91,7 +93,6 @@ For this example the demo is named: `laravel-animals`.
     ```
 6. Run demo migrations and optimizations
     ```sh
-    heroku run -a laravel-animals php artisan storage:link
     heroku run -a laravel-animals php artisan migrate
     heroku run -a laravel-animals php artisan db:seed
     heroku run -a laravel-animals php artisan config:cache

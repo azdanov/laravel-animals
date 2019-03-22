@@ -70,10 +70,10 @@ class ApiPetsTest extends TestCase
     {
         $before = count(Pet::all()->toArray());
         Passport::actingAs(factory(User::class)->make());
-        Storage::fake('public');
+        Storage::fake('heroku');
         $file = UploadedFile::fake()->image('image.jpg');
         $this->json('POST', '/api/images', ['file' => $file]);
-        Storage::disk('public')->assertExists(
+        Storage::disk('heroku')->assertExists(
             config('app.image_path') . '/' . $file->hashName()
         );
         $categoryId = Category::inRandomOrder()->pluck('id')->first();
@@ -95,10 +95,10 @@ class ApiPetsTest extends TestCase
     {
         $before = count(Pet::all()->toArray());
         Passport::actingAs(factory(User::class)->make());
-        Storage::fake('public');
+        Storage::fake('heroku');
         $file = UploadedFile::fake()->image('image.jpg');
         $this->json('POST', '/api/images', ['file' => $file]);
-        Storage::disk('public')->assertExists(
+        Storage::disk('heroku')->assertExists(
             config('app.image_path') . '/' . $file->hashName()
         );
         $categoryId = Category::inRandomOrder()->pluck('id')->first();
@@ -117,7 +117,7 @@ class ApiPetsTest extends TestCase
 
         $this->delete('/api/pets/' . $response->original['id']);
 
-        Storage::disk('public')->assertMissing(
+        Storage::disk('heroku')->assertMissing(
             config('app.image_path') . '/' . $file->hashName()
         );
     }
@@ -128,10 +128,10 @@ class ApiPetsTest extends TestCase
         $id = 1;
         $before = Pet::whereId($id)->get();
         Passport::actingAs(factory(User::class)->make());
-        Storage::fake('public');
+        Storage::fake('heroku');
         $file = UploadedFile::fake()->image('image.jpg');
         $this->json('POST', '/api/images', ['file' => $file]);
-        Storage::disk('public')->assertExists(
+        Storage::disk('heroku')->assertExists(
             config('app.image_path') . '/' . $file->hashName()
         );
         $categoryId = Category::inRandomOrder()->pluck('id')->first();

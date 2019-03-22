@@ -24,24 +24,24 @@ class ApiImageTest extends TestCase
     public function testImageUpload(): void
     {
         Passport::actingAs(factory(User::class)->make());
-        Storage::fake('public');
+        Storage::fake('heroku');
         $file = UploadedFile::fake()->image('image.jpg');
 
         $this->json('POST', '/api/images', ['file' => $file]);
 
-        Storage::disk('public')->assertExists(
+        Storage::disk('heroku')->assertExists(
             config('app.image_path') . '/' . $file->hashName()
         );
     }
 
     public function testGuestImageUpload(): void
     {
-        Storage::fake('public');
+        Storage::fake('heroku');
         $file = UploadedFile::fake()->image('image.jpg');
 
         $this->json('POST', '/api/images', ['file' => $file]);
 
-        Storage::disk('public')->assertMissing(
+        Storage::disk('heroku')->assertMissing(
             config('app.image_path') . '/' . $file->hashName()
         );
     }
@@ -49,23 +49,23 @@ class ApiImageTest extends TestCase
     public function testImageDelete(): void
     {
         Passport::actingAs(factory(User::class)->make());
-        Storage::fake('public');
+        Storage::fake('heroku');
         $file = UploadedFile::fake()->image('image.jpg');
         $this->json('POST', '/api/images', ['file' => $file]);
-        Storage::disk('public')->assertExists(
+        Storage::disk('heroku')->assertExists(
             config('app.image_path') . '/' . $file->hashName()
         );
 
         $this->delete('/api/images/' . $file->hashName());
 
-        Storage::disk('public')->assertMissing(
+        Storage::disk('heroku')->assertMissing(
             config('app.image_path') . '/' . $file->hashName()
         );
     }
 
     public function testGuestImageDelete(): void
     {
-        Storage::fake('public');
+        Storage::fake('heroku');
 
         $res = $this->delete('/api/images/BDLL9569402321714.jpeg');
 

@@ -70,10 +70,10 @@ class ApiCategoryTest extends TestCase
     {
         $before = count(Category::all()->toArray());
         Passport::actingAs(factory(User::class)->make());
-        Storage::fake('public');
+        Storage::fake('heroku');
         $file = UploadedFile::fake()->image('image.jpg');
         $this->json('POST', '/api/images', ['file' => $file]);
-        Storage::disk('public')->assertExists(
+        Storage::disk('heroku')->assertExists(
             config('app.image_path') . '/' . $file->hashName()
         );
 
@@ -93,10 +93,10 @@ class ApiCategoryTest extends TestCase
     {
         $before = count(Category::all()->toArray());
         Passport::actingAs(factory(User::class)->make());
-        Storage::fake('public');
+        Storage::fake('heroku');
         $file = UploadedFile::fake()->image('image.jpg');
         $this->json('POST', '/api/images', ['file' => $file]);
-        Storage::disk('public')->assertExists(
+        Storage::disk('heroku')->assertExists(
             config('app.image_path') . '/' . $file->hashName()
         );
         $response = $this->post('/api/categories', [
@@ -111,7 +111,7 @@ class ApiCategoryTest extends TestCase
 
         $this->delete('/api/categories/' . $response->original['id']);
 
-        Storage::disk('public')->assertMissing(
+        Storage::disk('heroku')->assertMissing(
             config('app.image_path') . '/' . $file->hashName()
         );
     }
@@ -121,10 +121,10 @@ class ApiCategoryTest extends TestCase
         $id = 1;
         $before = Category::whereId($id)->get();
         Passport::actingAs(factory(User::class)->make());
-        Storage::fake('public');
+        Storage::fake('heroku');
         $file = UploadedFile::fake()->image('image.jpg');
         $this->json('POST', '/api/images', ['file' => $file]);
-        Storage::disk('public')->assertExists(
+        Storage::disk('heroku')->assertExists(
             config('app.image_path') . '/' . $file->hashName()
         );
         $response = $this->put('/api/categories/' . $id, [
