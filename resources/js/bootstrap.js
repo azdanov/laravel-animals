@@ -1,7 +1,15 @@
-import '../images/animals.svg'
-import '../images/avatars/anna.jpg'
-import '../images/avatars/brittany.png'
-import '../images/avatars/taylor.png'
+function importAll(r) {
+  const files = {}
+  r.keys().map(file => {
+    files[file.replace('./', '')] = r(file)
+  })
+  return files
+}
+
+importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/))
+importAll(require.context('../images/avatars', false, /\.(png|jpe?g|svg)$/))
+importAll(require.context('../images/categories', false, /\.(png|jpe?g|svg)$/))
+importAll(require.context('../images/pets', false, /\.(png|jpe?g|svg)$/))
 
 document.addEventListener('DOMContentLoaded', () => {
   const $navbarBurgers = Array.prototype.slice.call(
