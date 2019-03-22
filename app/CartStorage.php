@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App;
 
 use Darryldecode\Cart\CartCollection;
-use Darryldecode\Cart\ItemAttributeCollection;
-use Darryldecode\Cart\ItemCollection;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use function base64_decode;
+use function base64_encode;
 use function serialize;
 use function unserialize;
 
@@ -40,7 +40,7 @@ class CartStorage extends Model
     /** @param CartCollection|mixed[] $value */
     public function setCartDataAttribute($value): void
     {
-        $this->attributes['cart_data'] = serialize($value);
+        $this->attributes['cart_data'] = base64_encode(serialize($value));
     }
 
     /**
@@ -50,15 +50,6 @@ class CartStorage extends Model
      */
     public function getCartDataAttribute($value)
     {
-        return unserialize(
-            $value,
-            [
-                'allowed_classes' => [
-                    CartCollection::class,
-                    ItemCollection::class,
-                    ItemAttributeCollection::class,
-                ],
-            ]
-        );
+        return unserialize(base64_decode($value, true));
     }
 }

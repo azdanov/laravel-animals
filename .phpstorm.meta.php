@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2019-03-22 14:13:35.
+    * Generated on 2019-03-22 15:07:41.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -31,6 +31,9 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'Laravel\Telescope\Contracts\ClearableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\EntriesRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\PrunableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
         'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
         'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
@@ -177,6 +180,9 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'Laravel\Telescope\Contracts\ClearableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\EntriesRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\PrunableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
         'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
         'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
@@ -323,6 +329,9 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'Laravel\Telescope\Contracts\ClearableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\EntriesRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\PrunableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
         'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
         'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
@@ -469,6 +478,9 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'Laravel\Telescope\Contracts\ClearableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\EntriesRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\PrunableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
         'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
         'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
@@ -615,6 +627,9 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'Laravel\Telescope\Contracts\ClearableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\EntriesRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\PrunableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
         'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
         'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
@@ -761,6 +776,9 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'Laravel\Telescope\Contracts\ClearableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\EntriesRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\PrunableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
         'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
         'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,
@@ -907,6 +925,9 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'Laravel\Telescope\Contracts\ClearableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\EntriesRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
+        'Laravel\Telescope\Contracts\PrunableRepository' => \Laravel\Telescope\Storage\DatabaseEntriesRepository::class,
         'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
         'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Adapters\Phpunit\Listener' => \NunoMaduro\Collision\Adapters\Phpunit\Listener::class,

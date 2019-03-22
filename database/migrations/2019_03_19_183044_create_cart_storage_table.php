@@ -12,7 +12,7 @@ class CreateCartStorageTable extends Migration
     {
         Schema::create('cart_storage', static function (Blueprint $table): void {
             $table->string('id')->index()->primary();
-            $table->string('cart_data');
+            $table->longText('cart_data');
             $table->timestamps();
         });
     }
