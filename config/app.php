@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Laravel\Telescope\TelescopeServiceProvider;
+
 return [
 
     /*
@@ -180,6 +182,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        TelescopeServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -192,6 +195,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewProvider::class,
         App\Providers\BraintreeServiceProvider::class,
