@@ -36,6 +36,10 @@ composer install
 cp .env.example .env
 
 # set DB_DATABASE to an absolute path e.g DB_DATABASE="/Users/me/projects/animals/database/animals.sqlite"
+# set BRAINTREE_ENV=sandbox
+# set BRAINTREE_PRIVATE_KEY=<key>
+# set BRAINTREE_PUBLIC_KEY=<key>
+# set BRAINTREE_MERCHANT_ID=<key>
 
 touch database/animals.sqlite
 
@@ -47,6 +51,52 @@ php artisan db:seed
 yarn
 yarn dev
 ```
+
+## Deployment on Heroku
+
+The demo can be hosted on Heroku in such a way.
+
+For this example the demo is named: `my_demo_name`.
+
+1. Install [Heroku-CLI](https://devcenter.heroku.com/articles/heroku-cli)
+2. Provision Heroku add-ons and build-packs:
+    ```sh
+    heroku apps:create my_demo_name
+    heroku addons:create heroku-postgresql:hobby-dev --app my_demo_name
+    heroku buildpacks:add heroku/php --app my_demo_name
+    heroku buildpacks:add heroku/nodejs --app my_demo_name
+    ```
+3. Add Heroku to git remote:
+    ```sh
+    heroku git:remote --app my_demo_name
+    ```
+4. Set environmental variables on Heroku:
+    ```sh
+    heroku config:set --app my_demo_name APP_KEY=$(php artisan --no-ansi key:generate --show)
+
+    heroku config:set --app my_demo_name BRAINTREE_ENVIRONMENT=sandbox
+    heroku config:set --app my_demo_name BRAINTREE_MERCHANT_ID=<id>
+    heroku config:set --app my_demo_name BRAINTREE_PUBLIC_KEY=<key>
+    heroku config:set --app my_demo_name BRAINTREE_PRIVATE_KEY=<key>
+    ```
+5. Deploy to Heroku
+    ```sh
+    git push heroku master
+    ```
+6. Run demo migrations and optimizations
+    ```sh
+    heroku run -a my_demo_name php artisan migrate
+    heroku run -a my_demo_name php artisan db:seed
+    heroku run -a my_demo_name php artisan config:cache
+    heroku run -a my_demo_name php artisan route:cache
+    ```
+7. Enable debugging (Optional, be sure not to run this on production, and prune telescope entries regularly)
+    ```sh
+    heroku config:set --app my_demo_name APP_ENV=development APP_DEBUG=true APP_LOG_LEVEL=debug TELESCOPE_ENABLED=true
+    ```
+
+Any issues during deployment are usually because of wrong env variables for external services (redis, postgres, braintree, etc).
+
 
 ## License
 
