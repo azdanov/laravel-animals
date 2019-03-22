@@ -15,8 +15,8 @@ class CategoryTableSeeder extends Seeder
 
         $images->each(static function ($image): void {
             copy(
-                base_path('resources/images/categories/') . $image,
-                base_path('public/storage/images/') . $image
+                resource_path('images/categories/') . $image,
+                public_path('storage/images/') . $image
             );
         });
 

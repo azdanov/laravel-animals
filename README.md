@@ -91,6 +91,7 @@ For this example the demo is named: `laravel-animals`.
     ```
 6. Run demo migrations and optimizations
     ```sh
+    heroku run -a laravel-animals php artisan storage:link
     heroku run -a laravel-animals php artisan migrate
     heroku run -a laravel-animals php artisan db:seed
     heroku run -a laravel-animals php artisan config:cache
