@@ -3,6 +3,8 @@
 Building a small shop with an admin panel made with `Vue`. This is an `Hybrid app` with parts
 made in plain `HTML` and others in `Vue` where SEO is not required.
 
+[Live](https://laravel-animals.herokuapp.com/)
+
 | Main                                                                                                                      | User                                                                                                                               | Admin                                                                                                                                      |
 | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | ![animals test_](https://user-images.githubusercontent.com/6123841/54782287-2df55880-4c27-11e9-8a94-c089876954c1.png)     | ![animals test_user_cart](https://user-images.githubusercontent.com/6123841/54782296-2fbf1c00-4c27-11e9-90e4-88d1b477e95c.png)     | ![animals test_admin_categories_cats](https://user-images.githubusercontent.com/6123841/54782290-2e8def00-4c27-11e9-9bca-52b5dc7faaed.png) |
