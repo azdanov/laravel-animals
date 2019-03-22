@@ -35,11 +35,16 @@ composer install
 
 cp .env.example .env
 
-# set DB_DATABASE to an absolute path e.g DB_DATABASE="/Users/me/projects/animals/database/animals.sqlite"
 # set BRAINTREE_ENV=sandbox
 # set BRAINTREE_PRIVATE_KEY=<key>
 # set BRAINTREE_PUBLIC_KEY=<key>
 # set BRAINTREE_MERCHANT_ID=<key>
+# set DB_CONNECTION=sqlite
+# set DB_HOST=127.0.0.1
+# set DB_PORT=3306
+# set DB_DATABASE="/Users/me/projects/animals/database/animals.sqlite"
+# set DB_USERNAME=root
+# set DB_PASSWORD=
 
 touch database/animals.sqlite
 
@@ -56,28 +61,30 @@ yarn dev
 
 The demo can be hosted on Heroku in such a way.
 
-For this example the demo is named: `my_demo_name`.
+For this example the demo is named: `laravel-animals`.
 
 1. Install [Heroku-CLI](https://devcenter.heroku.com/articles/heroku-cli)
 2. Provision Heroku add-ons and build-packs:
     ```sh
-    heroku apps:create my_demo_name
-    heroku addons:create heroku-postgresql:hobby-dev --app my_demo_name
-    heroku buildpacks:add heroku/php --app my_demo_name
-    heroku buildpacks:add heroku/nodejs --app my_demo_name
+    heroku apps:create laravel-animals
+    heroku addons:create heroku-postgresql:hobby-dev --app laravel-animals
+    heroku buildpacks:add heroku/php --app laravel-animals
+    heroku buildpacks:add heroku/nodejs --app laravel-animals
     ```
 3. Add Heroku to git remote:
     ```sh
-    heroku git:remote --app my_demo_name
+    heroku git:remote --app laravel-animals
     ```
 4. Set environmental variables on Heroku:
     ```sh
-    heroku config:set --app my_demo_name APP_KEY=$(php artisan --no-ansi key:generate --show)
+    heroku config:set --app laravel-animals APP_KEY=$(php artisan --no-ansi key:generate --show)
 
-    heroku config:set --app my_demo_name BRAINTREE_ENVIRONMENT=sandbox
-    heroku config:set --app my_demo_name BRAINTREE_MERCHANT_ID=<id>
-    heroku config:set --app my_demo_name BRAINTREE_PUBLIC_KEY=<key>
-    heroku config:set --app my_demo_name BRAINTREE_PRIVATE_KEY=<key>
+    heroku config:set --app laravel-animals APP_URL=$(heroku info -s | grep web_url | cut -d= -f2)
+    heroku config:set --app laravel-animals MIX_APP_URL=$(heroku info -s | grep web_url | cut -d= -f2 | sed "s/\$/api/g")
+    heroku config:set --app laravel-animals BRAINTREE_ENVIRONMENT=sandbox
+    heroku config:set --app laravel-animals BRAINTREE_MERCHANT_ID=<id>
+    heroku config:set --app laravel-animals BRAINTREE_PUBLIC_KEY=<key>
+    heroku config:set --app laravel-animals BRAINTREE_PRIVATE_KEY=<key>
     ```
 5. Deploy to Heroku
     ```sh
@@ -85,14 +92,14 @@ For this example the demo is named: `my_demo_name`.
     ```
 6. Run demo migrations and optimizations
     ```sh
-    heroku run -a my_demo_name php artisan migrate
-    heroku run -a my_demo_name php artisan db:seed
-    heroku run -a my_demo_name php artisan config:cache
-    heroku run -a my_demo_name php artisan route:cache
+    heroku run -a laravel-animals php artisan migrate
+    heroku run -a laravel-animals php artisan db:seed
+    heroku run -a laravel-animals php artisan config:cache
+    heroku run -a laravel-animals php artisan route:cache
     ```
 7. Enable debugging (Optional, be sure not to run this on production, and prune telescope entries regularly)
     ```sh
-    heroku config:set --app my_demo_name APP_ENV=development APP_DEBUG=true APP_LOG_LEVEL=debug TELESCOPE_ENABLED=true
+    heroku config:set --app laravel-animals APP_ENV=development APP_DEBUG=true APP_LOG_LEVEL=debug TELESCOPE_ENABLED=true
     ```
 
 Any issues during deployment are usually because of wrong env variables for external services (redis, postgres, braintree, etc).

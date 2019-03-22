@@ -1,7 +1,8 @@
 <?php
 
-return [
+declare(strict_types=1);
 
+return [
     /*
     |--------------------------------------------------------------------------
     | Default Database Connection Name
@@ -32,7 +33,6 @@ return [
     */
 
     'connections' => [
-
         'sqlite' => [
             'driver' => 'sqlite',
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
@@ -59,13 +59,14 @@ return [
             ]) : [],
         ],
 
+        /** parse_url is used for Heroku */
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => parse_url(env('DATABASE_URL'), PHP_URL_HOST),
+            'port' => parse_url(env('DATABASE_URL'), PHP_URL_PORT),
+            'database' => substr(parse_url(env('DATABASE_URL'), PHP_URL_PATH), 1),
+            'username' => parse_url(env('DATABASE_URL'), PHP_URL_USER),
+            'password' => parse_url(env('DATABASE_URL'), PHP_URL_PASS),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
@@ -84,7 +85,6 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
-
     ],
 
     /*
@@ -112,7 +112,6 @@ return [
     */
 
     'redis' => [
-
         'client' => env('REDIS_CLIENT', 'predis'),
 
         'options' => [
@@ -132,7 +131,5 @@ return [
             'port' => env('REDIS_PORT', 6379),
             'database' => env('REDIS_CACHE_DB', 1),
         ],
-
     ],
-
 ];
