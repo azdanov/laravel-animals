@@ -80,7 +80,6 @@ For this example the demo is named: `laravel-animals`.
     heroku config:set --app laravel-animals APP_KEY=$(php artisan --no-ansi key:generate --show)
     heroku config:set --app laravel-animals APP_URL=$(heroku info -s | grep web_url | cut -d= -f2)
     heroku config:set --app laravel-animals MIX_APP_URL=$(heroku info -s | grep web_url | cut -d= -f2 | sed "s/\$/api/g")
-    heroku config:set --app laravel-animals DB_CONNECTION=postgres
     heroku config:set --app laravel-animals BRAINTREE_ENVIRONMENT=sandbox
     heroku config:set --app laravel-animals BRAINTREE_MERCHANT_ID=<id>
     heroku config:set --app laravel-animals BRAINTREE_PUBLIC_KEY=<key>
