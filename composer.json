@@ -25,6 +25,7 @@
     "ext-json": "*",
     "barryvdh/laravel-ide-helper": "^2.6",
     "beyondcode/laravel-dump-server": "^1.0",
+    "codedungeon/phpunit-result-printer": "^0.26.1",
     "doctrine/dbal": "^2.9",
     "filp/whoops": "^2.0",
     "mockery/mockery": "^1.0",
